@@ -80,7 +80,10 @@ button:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-of
 .bar{flex:1;height:2px;background:var(--surface2);border-radius:2px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--gold);transition:width .4s}
 .qnum{font-family:var(--latin);font-style:italic;color:var(--gold);font-size:20px}
-.quiz h2{font-size:clamp(22px,6vw,28px);min-height:2.9em}
+.quiz h2{font-size:clamp(22px,6vw,28px);margin-top:-12px}
+.qtheme{font-family:var(--display);color:var(--gold);letter-spacing:.3em;font-size:14px}
+.qtheme::before,.qtheme::after{content:"―";margin:0 8px;opacity:.6}
+.qhint{font-size:13px;color:var(--muted);margin-top:-12px}
 .opts{display:flex;flex-direction:column;gap:12px}
 .opt{justify-content:flex-start;text-align:left;border-radius:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-weight:500;line-height:1.6}
 .opt:hover{background:var(--surface2);border-color:var(--gold)}
@@ -161,7 +164,9 @@ footer .home img{width:32px;height:32px;border-radius:50%}
   <!-- 問い -->
   <section id="quiz" class="quiz" hidden aria-live="polite">
     <div class="prog"><span class="qnum" id="qnum">I</span><div class="bar"><i id="bar"></i></div><span id="qcount">1 / 8</span></div>
+    <p class="qtheme" id="qtheme"></p>
     <h2 id="qtext"></h2>
+    <p class="qhint">考えすぎず、心に先に浮かんだものを。</p>
     <div class="opts" id="opts"></div>
     <button class="back" id="back">← ひとつ前の問いへ</button>
   </section>
@@ -297,16 +302,15 @@ const C = {
 
 /* ===== 8つの問い（各選択肢＝ひとつの色。どの色も4回ずつ登場） ===== */
 const Q = [
-  {q:"夜、ひとりの時間。いちばん近いのは？",o:[["好きな人のことを思い出して、眠れなくなる","crimson"],["月を眺めて、ただ静かにしている","moon"],["今日の会話を思い返して、相手の気持ちを考える","indigo"],["誰かに「おやすみ」と送りたくなる","rose"]]},
-  {q:"あなたの心に灯っているのは、どんな光？",o:[["焚き火のような、あたたかい灯り","amber"],["夜空にまたたく、遠い星","violet"],["森にこぼれる、やわらかな木漏れ日","jade"],["海の向こうで光る、灯台の明かり","silver"]]},
-  {q:"大切な人とすれ違ってしまった。あなたは？",o:[["その場で、思っていることを全部伝える","crimson"],["少し時間をおいて、言葉を選んで伝える","indigo"],["先に「ごめんね」と言ってしまう","rose"],["ひとりで歩いて、頭を冷やす","silver"]]},
-  {q:"ふと、惹かれる場所は？",o:[["古い神社の、いちばん奥","violet"],["風のない、静かな湖","moon"],["あかりのついた、あたたかい台所","amber"],["雨上がりの森","jade"]]},
-  {q:"誰かに言われて、いちばんうれしいのは？",o:[["「一緒にいると落ち着く」","jade"],["「あなたじゃなきゃ、だめなんだ」","crimson"],["「ちゃんとわかってくれてるね」","indigo"],["「ひとりの時間も、大事にしてね」","silver"]]},
-  {q:"よく見る夢に、近いのは？",o:[["初めて会う誰かと、昔から知り合いだった夢","violet"],["誰かに、ぎゅっと抱きしめられる夢","rose"],["大勢で、食卓を囲んでいる夢","amber"],["水の上に、ひとり浮かんでいる夢","moon"]]},
-  {q:"「縁」について、思うことは？",o:[["縁は、自分でつかみにいくもの","crimson"],["縁は、生まれる前から決まっているもの","violet"],["縁は、時間をかけて育てるもの","amber"],["縁は、離れていてもつながっているもの","silver"]]},
-  {q:"誰かの涙を見たとき、あなたは？",o:[["何も言わず、そっと隣に座る","jade"],["何があったのか、静かに聞く","indigo"],["気づいたら、一緒に泣いている","rose"],["あたたかい飲み物を、そっと差しだす","moon"]]}
+  {t:"夜のすごし方",q:"休みの日の夜、いちばんしたいことは？",o:[["好きな人や友だちと、夜まで出かける","crimson"],["部屋の明かりを落として、静かに過ごす","moon"],["ひとりで映画や本の世界にひたる","indigo"],["誰かとLINEや電話で、のんびり話す","rose"]]},
+  {t:"心の回復",q:"落ちこんだ日、元気をくれるのは？",o:[["家族や仲間と、あたたかいごはんを食べる","amber"],["占いやおみくじに、背中を押してもらう","violet"],["散歩や植物など、自然の中で深呼吸する","jade"],["ひとりの時間で、ゆっくり立て直す","silver"]]},
+  {t:"縁のほつれ",q:"大切な人とケンカしたら、あなたは？",o:[["その場で、思っていることを全部伝える","crimson"],["少し時間をおいて、言葉を選んで伝える","indigo"],["自分から先に「ごめんね」と言う","rose"],["一度ひとりになって、頭を冷やす","silver"]]},
+  {t:"惹かれる場所",q:"旅に出るなら、どこへ行きたい？",o:[["パワースポットや、古い神社めぐり","violet"],["人の少ない、静かな湖や海辺","moon"],["みんなでわいわい泊まれる温泉宿","amber"],["森や山など、緑あふれる場所","jade"]]},
+  {t:"言葉のおくりもの",q:"誰かに言われて、いちばんうれしいのは？",o:[["「一緒にいると落ち着く」","jade"],["「あなたじゃなきゃ、だめなんだ」","crimson"],["「ちゃんとわかってくれてるね」","indigo"],["「ひとりの時間も、大事にしてね」","silver"]]},
+  {t:"縁の芽ばえ",q:"なんだか気になる人ができたら？",o:[["偶然が重なると「運命かも」と感じる","violet"],["すぐ誰かに話して、聞いてもらう","rose"],["まずは、みんなで会える場をつくる","amber"],["自分からは動かず、そっと見守る","moon"]]},
+  {t:"縁の結び方",q:"人づきあいで、大切にしていることは？",o:[["気持ちは、言葉にしてまっすぐ伝える","crimson"],["「なんとなく」の直感を信じる","violet"],["時間をかけて、ゆっくり仲よくなる","amber"],["近すぎず、ちょうどいい距離を保つ","silver"]]},
+  {t:"寄り添う心",q:"友だちが落ちこんでいたら、あなたは？",o:[["何も言わず、そっとそばにいる","jade"],["何があったのか、じっくり話を聞く","indigo"],["気づいたら、一緒に泣いている","rose"],["好きなお菓子や飲み物を、そっと差し入れる","moon"]]}
 ];
-/* 問いの数をそろえたので、念のため色の登場回数を確認（開発用） */
 
 /* ===== 相性 ===== */
 // ◎：円環でとなりあう色　C–M–R–S–A–I–V–J–C
@@ -353,6 +357,7 @@ const TONIGHT = [
 
 /* ===== しくみ ===== */
 const $ = id=>document.getElementById(id);
+function setHash(h){try{history.replaceState(null,"",location.pathname+location.search+(h?"#"+h:""));}catch(e){}}
 const RM = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 const ROMAN = ["I","II","III","IV","V","VI","VII","VIII"];
 let answers = [], me = null, sub = null;
@@ -367,6 +372,7 @@ function renderQ(){
   $("qnum").textContent = ROMAN[i];
   $("qcount").textContent = (i+1)+" / "+Q.length;
   $("bar").style.width = (i/Q.length*100)+"%";
+  $("qtheme").textContent = q.t;
   $("qtext").textContent = q.q;
   const box = $("opts"); box.innerHTML = "";
   q.o.forEach(([t,k])=>{const b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=()=>pick(k);box.appendChild(b);});
@@ -376,7 +382,7 @@ function renderQ(){
 function pick(k){answers.push(k); if(answers.length<Q.length) renderQ(); else finish();}
 $("back").onclick=()=>{answers.pop();renderQ();};
 $("go").onclick=()=>{answers=[];show("quiz");renderQ();};
-$("again").onclick=()=>{history.replaceState(null,"",location.pathname);answers=[];show("quiz");renderQ();};
+$("again").onclick=()=>{setHash("");answers=[];show("quiz");renderQ();};
 
 // いちばん多く選んだ色。同点なら、あとで選んだほう
 function rank(list){
@@ -385,7 +391,7 @@ function rank(list){
 }
 function finish(){
   const r = rank(answers); me = r[0]; sub = r[1]||null;
-  ritual(()=>{history.replaceState(null,"",location.pathname+"#"+me);renderResult(false);});
+  ritual(()=>{setHash(me);renderResult(false);});
 }
 function ritual(done){
   const R=$("ritual"), orb=$("rorb"); setOrb(orb,me,sub);
@@ -448,7 +454,7 @@ function detail(k){
   else{title="光を分けあえる縁";body=`${a.name}と${b.name}は、ちがう光を持ちよれる縁。${a.name}の${a.trait}と、${b.name}の${b.trait}を交換しあうと、お互いの世界が広がります。`;tip="相手の色を「自分にないもの」として楽しむこと。";}
   d.innerHTML=`<div class="pair"><span class="dot" style="--c:${a.c}"></span><span>${relation(me,k).mark}</span><span class="dot" style="--c:${b.c}"></span></div>
   <h3>${a.name} × ${b.name}｜${title}</h3><p>${body}</p><h4>うまくいくコツ</h4><p>${tip}</p>`;
-  d.hidden=false; d.scrollIntoView({behavior:RM?"auto":"smooth",block:"nearest"});
+  d.hidden=false; try{d.scrollIntoView({behavior:RM?"auto":"smooth",block:"nearest"});}catch(e){}
 }
 
 // URL末尾 #crimson などで、その色の結果を直接ひらく（シェア用）
