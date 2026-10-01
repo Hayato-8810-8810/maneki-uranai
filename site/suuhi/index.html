@@ -183,15 +183,58 @@ button:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid va
 .grid9 button svg,.grid9 button img{width:56px;height:56px;margin-inline:auto}
 .pop svg,.pop img{animation:pop .5s ease-out}
 @keyframes pop{0%{transform:scale(.6) rotate(-8deg)}70%{transform:scale(1.06)}100%{transform:scale(1)}}
+.about{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 24px}
+.about summary{cursor:pointer;font-weight:700;padding-block:16px;list-style:none;display:flex;justify-content:space-between;gap:8px}
+.about summary::-webkit-details-marker{display:none}
+.about summary::after{content:"＋";color:var(--muted)}
+.about[open] summary::after{content:"−"}
+.about dl{margin:0 0 16px;display:flex;flex-direction:column;gap:12px}
+.about dt{font-weight:700;color:var(--plum);font-size:15px}
+.about dd{margin:0;font-size:15px}
+.basis{font-size:13px;color:var(--muted);margin-top:8px}
+.basis a{color:var(--plum);font-weight:700}
+
+/* ===== 鑑定の演出（独自の夜空の世界。テーマに左右されない固定色） ===== */
+.ritual{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px 16px;
+  background:radial-gradient(ellipse at 50% 45%,#3A2A6B 0%,#1B1436 55%,#0E0A1F 100%);color:#F4EEDD;
+  opacity:0;transition:opacity .5s ease;overflow:hidden}
+.ritual.show{opacity:1}
+.ritual .stage{position:relative;width:min(340px,86vw);aspect-ratio:1;display:grid;place-items:center}
+.ritual .ring{position:absolute;inset:0;animation:spin 24s linear infinite}
+.ritual .ring svg{width:100%;height:100%;overflow:visible}
+.ritual .ring text{font-family:"DM Mono",ui-monospace,monospace;font-size:15px;fill:#B9A9E0;transition:fill .4s,font-size .4s}
+.ritual .ring text.lit{fill:#F2C95C;font-size:22px}
+.ritual .core{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.ritual .sum{font-family:var(--display);font-size:clamp(64px,22vw,96px);line-height:1;color:#F4EEDD;text-shadow:0 0 24px rgba(242,201,92,.35);transition:transform .3s, text-shadow .5s}
+.ritual .sum.bump{transform:scale(1.12)}
+.ritual .sum.final{color:#F2C95C;text-shadow:0 0 18px rgba(242,201,92,.9),0 0 48px rgba(242,201,92,.6)}
+.ritual .msg{font-size:14px;letter-spacing:.12em;color:#CFC3EE;min-height:1.6em}
+.ritual .digits{position:absolute;left:0;right:0;bottom:-64px;display:flex;justify-content:center;gap:6px;font-family:"DM Mono",ui-monospace,monospace;font-size:20px;color:#8E7FC0}
+.ritual .digits span{opacity:.25;transition:opacity .25s,color .25s,transform .25s}
+.ritual .digits span.on{opacity:1;color:#F4EEDD;transform:translateY(-3px)}
+.ritual .skip{position:absolute;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:transparent;border:1px solid #6E5FA8;color:#CFC3EE;font-size:13px;padding:8px 16px;border-radius:99px}
+.ritual .tw{position:absolute;width:3px;height:3px;border-radius:50%;background:#F4EEDD;animation:tw 2.4s ease-in-out infinite}
+.ritual .flash{position:absolute;inset:-20%;background:radial-gradient(circle at 50% 45%,rgba(255,244,214,.95) 0%,rgba(242,201,92,.5) 25%,rgba(242,201,92,0) 60%);opacity:0;pointer-events:none}
+.ritual .flash.go{animation:flash .9s ease-out forwards}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:1}}
+@keyframes flash{0%{opacity:0;transform:scale(.6)}35%{opacity:1}100%{opacity:0;transform:scale(1.4)}}
+#card{scroll-margin-top:72px}
+.card.reveal{animation:reveal 1.1s cubic-bezier(.2,.8,.2,1)}
+@keyframes reveal{0%{opacity:0;transform:translateY(12px) scale(.97);filter:blur(6px);box-shadow:0 0 0 0 rgba(242,201,92,0)}
+  45%{opacity:1;filter:blur(0);box-shadow:0 0 0 6px rgba(242,201,92,.45),0 0 48px rgba(242,201,92,.5)}
+  100%{transform:none;box-shadow:0 0 0 0 rgba(242,201,92,0)}}
+@media (prefers-reduced-motion:reduce){.ritual .ring,.ritual .tw{animation:none}.card.reveal{animation:none}.ritual .flash.go{animation:none}}
 @media (prefers-reduced-motion:reduce){.pop svg,.pop img,.guide img{animation:none}*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 
 <div class="wrap">
   <header class="hero">
     <div>
-      <p class="eyebrow">まねき占い堂｜生年月日の数秘術でわかる</p>
+      <p class="eyebrow">まねき占い堂｜数秘術（ピタゴラス式）で読み解く</p>
       <h1>あなたの<em>仕事×お金</em>タイプ診断</h1>
-      <p class="lead">生まれた日の数字を足すと、1〜9のどれかになります。あなたの稼ぎ方のクセ、9タイプとの相性、今月お金を使っていい日まで読み解きます。</p>
+      <p class="lead">数秘術では、生年月日の数字をすべて足して出す「ライフパスナンバー（運命数）」に、その人が生まれ持った性質が表れるとされています。この診断では、あなたのライフパスナンバーを仕事とお金の視点で読み解き、9タイプとの相性、今月お金を使っていい日までお伝えします。</p>
+      <p class="basis"><a href="#about">数秘術とライフパスナンバーについて</a></p>
     </div>
     <figure class="guide"><img src="../images/brand.webp" alt="まねき占い堂" width="512" height="512"><figcaption>まねき占い堂の無料診断<br>9匹のうち、誰になるかな？</figcaption></figure>
   </header>
@@ -209,7 +252,7 @@ button:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid va
       </div>
       <p class="err" id="err" role="alert"></p>
     </fieldset>
-    <p class="calc" id="calc">1+9+9+5+0+4+1+2 = 31 → 3+1 = 4</p>
+    <p class="calc" id="calc">ライフパスナンバーの出し方（例）：1+9+9+5+0+4+1+2 = 31 → 3+1 = 4</p>
   </form>
 
   <nav class="tabs" role="tablist" aria-label="診断メニュー">
@@ -266,8 +309,36 @@ button:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid va
     </div>
   </section>
 
+  <details class="about" id="about">
+    <summary>数秘術とライフパスナンバーについて</summary>
+    <dl>
+      <div><dt>数秘術（ヌメロロジー）とは</dt><dd>数字に意味を見いだす占術です。いま広く使われている西洋の数秘術は、「万物は数である」と考えた古代ギリシャの数学者ピタゴラスの思想にさかのぼるとされ、「ピタゴラス式」とも呼ばれます。</dd></div>
+      <div><dt>ライフパスナンバー（運命数）</dt><dd>生年月日の数字を1けたずつすべて足し、1けたになるまで足し続けて出す数字です。数秘術でもっとも基本になる数字で、生まれ持った性質や人生の傾向を表すとされています。この診断の「9匹」は、このライフパスナンバーの1〜9に対応しています。</dd></div>
+      <div><dt>11・22・33（マスターナンバー）</dt><dd>流派によっては1けたにしない特別な数字として扱いますが、この診断では入門向けに、すべて1〜9にまとめています。</dd></div>
+      <div><dt>財布の紐カレンダー（パーソナルデー）</dt><dd>誕生月日と今年の数字を足した「パーソナルイヤー」に、その日の月と日を足して出す「パーソナルデー」をもとにしています。数秘術で、日ごとの流れを見るときに使われる数字です。</dd></div>
+      <div><dt>相性について</dt><dd>「1・5・7」「2・4・8」「3・6・9」は、数秘術で相性がよいとされる組み合わせです。「すれ違いやすい相手」は、となり合う数字を「大事にするものがずれやすい」とみる、この診断独自の読み方です。</dd></div>
+    </dl>
+  </details>
   <p style="text-align:center"><a href="../" style="color:var(--plum);font-weight:700">まねき占い堂のトップへ</a></p>
   <p class="note">この診断は数秘術をもとにしたエンターテインメントです。収入や投資の成果を保証するものではありません。お金に関する大きな判断は、専門家への相談もあわせてご検討ください。入力した生年月日は、この画面の中で計算するだけで送信・保存はされません。</p>
+</div>
+
+<div class="ritual" id="ritual" hidden aria-live="assertive">
+  <div class="stage">
+    <div class="ring"><svg viewBox="-170 -170 340 340" aria-hidden="true">
+      <circle r="150" fill="none" stroke="#6E5FA8" stroke-width="1"/>
+      <circle r="122" fill="none" stroke="#4E417F" stroke-width="1" stroke-dasharray="2 6"/>
+      <g id="ringNums"></g>
+    </svg></div>
+    <div class="core">
+      <p class="msg" id="rMsg">あなたの数字を読み解いています</p>
+      <p class="sum" id="rSum">0</p>
+      <p class="msg" id="rSub"></p>
+    </div>
+    <div class="digits" id="rDigits" aria-hidden="true"></div>
+  </div>
+  <div class="flash" id="rFlash"></div>
+  <button type="button" class="skip" id="rSkip">結果をすぐ見る</button>
 </div>
 
 <script>
@@ -473,7 +544,7 @@ function renderMe(n,browse,shared){
   const tag = shared?`<span class="tag">シェアされた結果です。あなたは何のキャラ？上で診断できます</span>`:browse?'<span class="tag">タイプ一覧から表示中</span>':(!meFromInput?'<span class="tag">例：1995年4月12日生まれの場合</span>':'');
   $("card").innerHTML=`
     <div class="num" aria-hidden="true">${n}</div>${tag}
-    <p class="eyebrow" style="position:relative">数秘 ${n}</p>
+    <p class="eyebrow" style="position:relative">${shared||browse?"":"あなたの"}ライフパスナンバー ${n}</p>
     <h2>${c.name}<br><small style="font-size:.6em">＝ ${t.name}タイプ</small></h2>
     <div class="chara pop">${charaSVG(n)}<p class="bubble"><span class="cn">${c.name}</span><span class="an">${c.animal}｜数秘${n}</span><br>「${c.quip}」</p></div>
     <p class="catch">${t.catch}</p>
@@ -511,7 +582,7 @@ function renderMatch(){
   $("mcard").innerHTML=`${tag}
     <p class="eyebrow" style="position:relative">あなた＝数秘${me}｜${c.name}</p>
     <h2>${c.name}と<br>9タイプの相性</h2>
-    <p style="position:relative">気になるキャラをタップすると、どんな組み合わせか、うまくいくコツが見られます。家族・友達・パートナー・同僚、誰との関係にも使えます。</p>
+    <p style="position:relative">気になるキャラをタップすると、どんな組み合わせか、うまくいくコツが見られます。家族・友達・パートナー・同僚、誰との関係にも使えます。数秘術で相性がよいとされる「1・5・7」「2・4・8」「3・6・9」の組み合わせをもとにしています。</p>
     ${grp("good")}${grp("ok")}${grp("care")}
     <p class="mnote">相性は良し悪しを決めるものではなく、付き合い方のヒントです。△の相手ほど、あなたにない見方を教えてくれることもあります。</p>`;
   const goods=[];for(let n=1;n<=9;n++) if(MATCH(me,n)==="good") goods.push(CHARA[n].name);
@@ -562,7 +633,7 @@ function renderCal(){
   $("dayinfo").innerHTML=`
     <p class="dh"><span class="pill k-${info.k}">${KLABEL[info.k]}</span>${vm}月${selDay}日${isToday?"（今日）":""}は ${KNAME[info.k]}</p>
     <p>${info.msg}</p>
-    <p class="calc">${vy}年のあなたの数字 ${py} ＋ ${vm}月 ＋ ${selDay}日 → この日の数字 ${pd}</p>`;
+    <p class="calc">${vy}年のパーソナルイヤー ${py} ＋ ${vm}月 ＋ ${selDay}日 → この日のパーソナルデー ${pd}</p>`;
   setShare("cshareX","cshareTh",`${vm}月の私の「財布の紐カレンダー」\n使っていい日 ${cnt.use}日／締める日 ${cnt.hold}日\n\n今日は【${KNAME[ti.k]}】\n${ti.msg}\n\n#${HASHTAG}`,"calendar");
 }
 
@@ -606,11 +677,54 @@ function readYMD(p,errId){
 }
 wireYMD("b");
 
+/* ===== 鑑定の演出 ===== */
+const RM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+(function(){
+  const g=$("ringNums"); let h="";
+  for(let i=1;i<=9;i++){const a=(i-1)/9*2*Math.PI-Math.PI/2;h+=`<text id="rn${i}" x="${(150*Math.cos(a)).toFixed(1)}" y="${(150*Math.sin(a)).toFixed(1)}" text-anchor="middle" dominant-baseline="central">${i}</text>`;}
+  g.innerHTML=h;
+  const r=$("ritual");
+  for(let i=0;i<22;i++){const t=document.createElement("i");t.className="tw";t.style.left=(Math.random()*100)+"%";t.style.top=(Math.random()*100)+"%";t.style.animationDelay=(Math.random()*2.4)+"s";r.appendChild(t);}
+})();
+function ritual(dateStr,n){
+  return new Promise(resolve=>{
+    const r=$("ritual"),sum=$("rSum"),msg=$("rMsg"),sub=$("rSub"),dg=$("rDigits"),fl=$("rFlash");
+    const digits=dateStr.replace(/-/g,"").split("").map(Number);
+    dg.innerHTML=digits.map(d=>`<span>${d}</span>`).join("");
+    for(let i=1;i<=9;i++) $("rn"+i).classList.remove("lit");
+    sum.textContent="0"; sum.className="sum"; msg.textContent="あなたの数字を読み解いています"; sub.textContent=""; fl.className="flash";
+    r.hidden=false; requestAnimationFrame(()=>r.classList.add("show"));
+    document.body.style.overflow="hidden";
+    const timers=[]; let done=false;
+    const at=(ms,fn)=>timers.push(setTimeout(fn,ms));
+    const finish=()=>{ if(done) return; done=true; timers.forEach(clearTimeout);
+      r.classList.remove("show"); document.body.style.overflow="";
+      setTimeout(()=>{r.hidden=true;resolve();},RM?0:450); };
+    $("rSkip").onclick=finish;
+    const step=RM?60:260; let total=0;
+    digits.forEach((d,i)=>at(500+i*step,()=>{ total+=d; sum.textContent=total; dg.children[i].classList.add("on");
+      sum.classList.add("bump"); setTimeout(()=>sum.classList.remove("bump"),150); }));
+    let t=500+digits.length*step+(RM?100:400);
+    let cur=digits.reduce((a,b)=>a+b,0);
+    while(cur>9){ const s=String(cur).split("").map(Number), nxt=s.reduce((a,b)=>a+b,0), shown=cur;
+      at(t,()=>{ sub.textContent=`${shown} → ${s.join("+")}`; sum.textContent=nxt; sum.classList.add("bump"); setTimeout(()=>sum.classList.remove("bump"),150); });
+      cur=nxt; t+=RM?150:700; }
+    at(t,()=>{ sum.classList.add("final"); $("rn"+n).classList.add("lit"); msg.textContent="あなたのライフパスナンバーは"; sub.textContent=CHARA[n].name+"のタイプ"; });
+    t+=RM?300:1100;
+    at(t,()=>{ if(!RM) fl.classList.add("go"); });
+    at(t+(RM?0:450),finish);
+  });
+}
+
 /* events */
 $("f").addEventListener("submit",e=>{
   e.preventDefault(); const v=readYMD("b","err"); if(!v) return;
-  const r=lifePath(v); me=r.n; meBirth=v; meFromInput=true; $("calc").textContent=r.text;
-  renderMe(me,false); renderMatch(); renderCal();
+  const r=lifePath(v); me=r.n; meBirth=v; meFromInput=true; $("calc").textContent="あなたのライフパスナンバー："+r.text;
+  renderMe(me,false); renderMatch(); renderCal(); showTab("me");
+  ritual(v,me).then(()=>{
+    const c=$("card"); c.classList.remove("reveal"); void c.offsetWidth; c.classList.add("reveal");
+    c.scrollIntoView({behavior:RM?"auto":"smooth",block:"start"});
+  });
 });
 $("prev").addEventListener("click",()=>{vm--;if(vm<1){vm=12;vy--;}selDay=1;renderCal();});
 $("next").addEventListener("click",()=>{vm++;if(vm>12){vm=1;vy++;}selDay=1;renderCal();});
