@@ -86,17 +86,12 @@ p{margin:0}
     <p class="soon">新しい診断を準備中です。公開したらSNSでお知らせします。</p>
   </section>
 
-  <nav class="sns" id="sns" aria-label="SNS" hidden></nav>
+  <nav class="sns" aria-label="SNS">
+    <a href="https://x.com/maneki_uranai" target="_blank" rel="noopener">Xでフォロー（@maneki_uranai）</a>
+  </nav>
 
   <p class="note">まねき占い堂の診断はエンターテインメントです。収入や投資の成果を保証するものではありません。<br>入力した生年月日は、画面の中で計算するだけで送信・保存はされません。</p>
   <p class="note">© 2026 まねき占い堂</p>
 </div>
-<script>
-/* SNSのURLが決まったら入れる（空のものは表示しない） */
-const X_URL = "https://x.com/maneki_uranai";
-const THREADS_URL = "";
-const links=[["X",X_URL],["Threads",THREADS_URL]].filter(l=>l[1]);
-if(links.length){const n=document.getElementById("sns");n.innerHTML=links.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${t}でフォロー</a>`).join("");n.hidden=false;}
-</script>
 </body>
 </html>

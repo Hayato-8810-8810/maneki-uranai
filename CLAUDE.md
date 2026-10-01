@@ -13,7 +13,7 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 
 ## リポジトリ構成
 - `site/` … 公開されるサイト（Netlify は netlify.toml で site/ だけを公開。push すると自動で本番に反映）
-  - `site/index.html` … まねき占い堂のトップ（診断一覧）。`X_URL`・`THREADS_URL` を入れるとSNSリンクが出る
+  - `site/index.html` … まねき占い堂のトップ（診断一覧）。SNSリンクは下部の nav.sns に直接書く（Threadsは作成後に追加）
   - `site/images/` … brand.webp（店のマーク）、ogp_top.png（トップのリンクカード）
   - `site/suuhi/index.html` … 仕事とお金の数秘診断（1ファイル完結）
   - `site/suuhi/images/` … chara_1〜9.webp（512px丸切り抜き）、ogp.png（1200×630）
