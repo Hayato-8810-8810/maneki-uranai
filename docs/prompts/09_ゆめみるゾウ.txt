@@ -1,0 +1,13 @@
+【数秘9｜ゆめみるゾウ（ゾウ）】
+タイプ：想いで稼ぐ理想家
+口ぐせ：「いつか、みんなが笑える仕事をしたいんだ。」
+絵のポイント：鼻で小さな金色の星を持ち上げて、上を見上げている。まわりに星と月。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a dreamy baby elephant, soft blue-grey skin (#9FB3C8), large floppy ears (#B8C8DA), trunk curled upward holding a small shining gold star (#E2B659), eyes looking up with a hopeful sparkle, a few small stars and a tiny crescent moon floating around, gentle warm smile, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_9_ゆめみるゾウ.png

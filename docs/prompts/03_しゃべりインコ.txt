@@ -1,0 +1,13 @@
+【数秘3｜しゃべりインコ（インコ）】
+タイプ：発信で稼ぐ表現者
+口ぐせ：「この話、明日も誰かにしゃべっちゃう。」
+絵のポイント：マイクを持って楽しそうにしゃべっている。黄色いトサカ。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a chubby cheerful budgie parakeet, bright green feathers (#4DB36A), a fluffy yellow crest of three feathers on top of the head (#F2C94C), small orange beak (#F29E4C), holding a small retro microphone in one wing, beak open mid-sentence, the other wing raised expressively, tiny music notes or speech sparkles around, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_3_しゃべりインコ.png

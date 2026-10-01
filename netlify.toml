@@ -1,0 +1,4 @@
+# Netlify の設定：公開するのは site フォルダだけ（ビルドなし）
+[build]
+  publish = "site"
+  command = ""

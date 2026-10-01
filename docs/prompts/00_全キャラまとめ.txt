@@ -1,0 +1,155 @@
+仕事×お金の数秘診断　キャラクター画像プロンプト
+
+使い方
+・1キャラずつ、「プロンプト」の部分をそのまま画像生成AIに貼り付けてください。
+・9キャラとも同じ「共通スタイル」を末尾に入れてあるので、絵柄がそろいやすくなっています。
+・絵柄がそろわないときは、最初にできた1枚（おすすめは4のリス）を参考画像として添付し、
+　「この画像と同じ絵柄で」と一言足すと統一しやすくなります。
+・Midjourneyを使う場合は、プロンプトの最後に「 --ar 1:1 --niji 6」を足してください。
+・色はサイトの色に合わせてカラーコード（#…）で指定しています。
+
+【数秘1｜イノいちばん（イノシシ）】
+タイプ：一番槍の開拓者
+口ぐせ：「考えるより先に、もう申し込んだよ。」
+絵のポイント：前のめりで今にも走り出しそうなポーズ。赤い旗を掲げている。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a small energetic baby wild boar, warm reddish-brown fur (#A8704F), light peach snout with two nostrils, two tiny white rounded tusks, leaning forward as if about to dash, holding a small red flag (#E2574C) raised high in one hand, determined but cheerful grin, little dust puff behind its feet, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_1_イノいちばん.png
+
+
+【数秘2｜てつなぎラッコ（ラッコ）】
+タイプ：縁で稼ぐ調整役
+口ぐせ：「あの人とあの人、会わせたら面白いと思うんだ。」
+絵のポイント：片手を差し出して「手をつなごう」のポーズ。頭の上に小さなハート。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a gentle sea otter, soft grey-brown fur (#8B7B6B), cream-colored muzzle with whiskers, small round ears, holding out one paw as if offering a handshake, a small red heart (#E2574C) floating above its head, a tiny string connecting two small hearts, kind relaxed smile, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_2_てつなぎラッコ.png
+
+
+【数秘3｜しゃべりインコ（インコ）】
+タイプ：発信で稼ぐ表現者
+口ぐせ：「この話、明日も誰かにしゃべっちゃう。」
+絵のポイント：マイクを持って楽しそうにしゃべっている。黄色いトサカ。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a chubby cheerful budgie parakeet, bright green feathers (#4DB36A), a fluffy yellow crest of three feathers on top of the head (#F2C94C), small orange beak (#F29E4C), holding a small retro microphone in one wing, beak open mid-sentence, the other wing raised expressively, tiny music notes or speech sparkles around, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_3_しゃべりインコ.png
+
+
+【数秘4｜ためこみリス（リス）】
+タイプ：コツコツ資産家
+口ぐせ：「どんぐり1個でも、冬にはちゃんと効いてくるの。」
+絵のポイント：どんぐりを大事そうに抱えて、足元にもどんぐりを積んでいる。ほっぺが少しふくらんでいる。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a round little squirrel, warm orange fur (#E08A45), cream belly and muzzle, pointed ears, a huge fluffy curled tail behind it (#C7743A), hugging a big shiny acorn to its chest, cheeks slightly puffed as if storing nuts, a small neat stack of three acorns at its feet, satisfied content smile, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_4_ためこみリス.png
+
+
+【数秘5｜わたりツバメ（ツバメ）】
+タイプ：複数収入の旅人
+口ぐせ：「財布は3つあるよ。中身は…あんまり聞かないで。」
+絵のポイント：小さなスーツケースと、肩から下げた3つのがま口財布。ちょっと気まずそうなウインク。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a small swallow bird, glossy navy-blue back and head (#2E3A6B), white belly, red throat patch (#D9534F), forked tail, small yellow beak, wearing a tiny traveler's scarf, holding a small brown suitcase (#C9853A) with travel stickers, three little coin purses hanging from its shoulder strap, sheepish playful wink, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_5_わたりツバメ.png
+
+
+【数秘6｜おかんクマ（クマ）】
+タイプ：信頼で稼ぐ世話役
+口ぐせ：「ちゃんと食べた？自分の分も取っときなよ。」
+絵のポイント：赤い三角巾とエプロン。湯気の立つ湯のみを持ち、ポケットからおにぎり。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a warm motherly bear cub, soft brown fur (#9C6B45), light tan muzzle and inner ears, wearing a red bandana on its head (#E2574C) and a simple cream apron, holding a steaming cup of green tea in both paws, a small wrapped rice ball (onigiri) peeking from the apron pocket, caring gentle smile, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_6_おかんクマ.png
+
+
+【数秘7｜ものしりフクロウ（フクロウ）】
+タイプ：専門で稼ぐ探究者
+口ぐせ：「ちょっと調べるつもりが、もう3時間たってた。」
+絵のポイント：丸メガネに分厚い紫の本。耳の羽に鉛筆。少し眠そうだけど満足げ。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a studious little owl, grey-brown feathers (#8A7A66), pointed ear tufts, cream facial disc around the eyes, small orange beak, wearing big round glasses, holding an open thick purple book (#5E3A93) with one wing, a pencil tucked behind one ear tuft, a tiny pocket watch nearby, slightly sleepy but satisfied expression, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_7_ものしりフクロウ.png
+
+
+【数秘8｜しゃちょライオン（ライオン）】
+タイプ：お金を動かす経営者
+口ぐせ：「で、それ、いくら返ってくるの？」
+絵のポイント：紺のネクタイ、片手を腰に、もう片方の手で金貨。自信満々のドヤ顔。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a confident little lion cub, golden-yellow face and body (#F2C063), big fluffy round orange mane (#C9772E), wearing a white shirt collar and a navy blue necktie (#3B4A8C), one paw on hip and the other holding a small gold coin up, a tiny upward-trending bar graph sign beside it, self-assured smirk with one eyebrow raised, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_8_しゃちょライオン.png
+
+
+【数秘9｜ゆめみるゾウ（ゾウ）】
+タイプ：想いで稼ぐ理想家
+口ぐせ：「いつか、みんなが笑える仕事をしたいんだ。」
+絵のポイント：鼻で小さな金色の星を持ち上げて、上を見上げている。まわりに星と月。
+
+▼ プロンプト（英語のままコピーして使ってください）
+a dreamy baby elephant, soft blue-grey skin (#9FB3C8), large floppy ears (#B8C8DA), trunk curled upward holding a small shining gold star (#E2B659), eyes looking up with a hopeful sparkle, a few small stars and a tiny crescent moon floating around, gentle warm smile, cute chibi mascot character, Japanese kawaii style, full body, big head small body (2-head proportion), standing and facing the viewer, big round sparkling eyes, soft pink blush on the cheeks, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1
+
+▼ ネガティブプロンプト（入力欄がある場合のみ）
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_9_ゆめみるゾウ.png
+
+
+【おまけ｜9匹の集合絵（アカウントのヘッダー・note見出し用）】
+
+▼ プロンプト
+a group illustration of nine cute chibi animal mascots standing together in a friendly row: a reddish-brown baby boar holding a red flag, a grey-brown sea otter with a small heart, a green budgie with a yellow crest holding a microphone, an orange squirrel hugging an acorn, a navy swallow with a small suitcase, a brown bear cub in a red bandana and apron holding a teacup, a grey owl with round glasses and a purple book, a golden lion cub with an orange mane and navy necktie, a blue-grey baby elephant holding a gold star with its trunk, Japanese kawaii style, 2-head proportion, clean thick rounded dark-plum outline, flat colors with soft cel shading, plain pale lavender background (#ECE4F7), wide banner composition 3:1, no text
+
+▼ ネガティブプロンプト
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_all_header.png

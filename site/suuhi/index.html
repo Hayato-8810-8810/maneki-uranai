@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>仕事とお金の数秘診断｜まねき占い堂</title>
+<link rel="icon" href="../images/brand.webp">
+<meta name="description" content="生年月日から、あなたの仕事×お金タイプ（9キャラ）、9タイプとの相性、今月の財布の紐カレンダーがわかる無料診断。">
+<!-- OGP：公開URLと画像が決まったら書き換える -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="まねき占い堂">
+<meta property="og:title" content="仕事とお金の数秘診断｜まねき占い堂">
+<meta property="og:description" content="生年月日で9匹のどれかに。あなたの稼ぎ方のクセと、9タイプとの相性がわかる。">
+<meta property="og:url" content="https://maneki-uranai.netlify.app/suuhi/">
+<meta property="og:image" content="https://maneki-uranai.netlify.app/suuhi/images/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=DM+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#F6F4FA; --surface:#FDFCFF; --ink:#221C3A; --muted:#6B6582; --line:#E2DDEE;
+  --gold:#9A6E1C; --gold-soft:#F3E8CF; --plum:#5E3A93; --plum-soft:#ECE4F7;
+  --on-plum:#FFFFFF; --sun:#C0463A; --sat:#2F63B0;
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --mono:"DM Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14112A; --surface:#1E1A38; --ink:#EDE8F7; --muted:#A9A2C2; --line:#332D55;
+    --gold:#E2B659; --gold-soft:#3A3020; --plum:#B99AF0; --plum-soft:#2B2450; --on-plum:#14112A; --sun:#F08A7E; --sat:#8DB4F2; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14112A; --surface:#1E1A38; --ink:#EDE8F7; --muted:#A9A2C2; --line:#332D55;
+  --gold:#E2B659; --gold-soft:#3A3020; --plum:#B99AF0; --plum-soft:#2B2450; --on-plum:#14112A; --sun:#F08A7E; --sat:#8DB4F2; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.85;letter-spacing:.02em;word-break:auto-phrase;padding-inline:16px;padding-block:24px 56px}
+.wrap{max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:32px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.4;letter-spacing:.04em;margin:0}
+p{margin:0}
+.eyebrow{font-size:12px;letter-spacing:.18em;color:var(--gold);font-weight:700}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 152px;gap:24px;align-items:center}
+.hero h1{font-size:clamp(28px,7vw,42px);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--plum)}
+.hero .lead{color:var(--muted);margin-top:12px;font-size:15px}
+.wheel{width:152px;height:152px;position:relative}
+.wheel span{position:absolute;width:32px;height:32px;margin:-16px;border-radius:50%;display:grid;place-items:center;font-family:var(--mono);font-size:14px;color:var(--muted);border:1px solid var(--line);background:var(--surface);transition:all .4s}
+.wheel span.on{background:var(--gold);color:var(--bg);border-color:var(--gold);transform:scale(1.25)}
+.wheel span.boss{border:2px solid var(--plum);color:var(--plum)}
+.wheel .core{position:absolute;inset:44px;border-radius:50%;border:1px dashed var(--line);display:grid;place-items:center;font-family:var(--display);font-size:34px;color:var(--gold)}
+.guide{margin:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.guide img{width:152px;height:152px;border-radius:50%;animation:float 4s ease-in-out infinite}
+.guide figcaption{font-size:12px;line-height:1.5;color:var(--muted);text-align:center}
+@keyframes float{50%{transform:translateY(-6px)}}
+@media (max-width:440px){.hero{grid-template-columns:1fr}.guide{flex-direction:row;justify-content:center}.guide img{width:96px;height:96px}.guide figcaption{text-align:left}}
+
+/* form */
+.form{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.form label{font-weight:700;font-size:15px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row input:not(.ymd input){flex:1 1 200px;font:inherit;font-family:var(--mono);font-size:18px;padding:12px 16px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);min-width:0}
+button,.btn{font:inherit;font-weight:700;border:0;border-radius:8px;padding:12px 24px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.go{background:var(--plum);color:var(--on-plum)}
+button:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.ymd{display:flex;align-items:flex-end;gap:4px;flex:1 1 240px;min-width:0}
+.ymd label{display:flex;align-items:baseline;gap:4px;font-weight:500;font-size:14px;color:var(--muted)}
+.ymd input{font:inherit;font-family:var(--mono);font-size:22px;text-align:center;padding:10px 4px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:4.2em;min-width:0}
+.ymd input.md{width:2.8em}
+.ymd input::placeholder{color:var(--line)}
+.ymd input[aria-invalid="true"]{border-color:#C0463A}
+.err{color:#C0463A;font-size:13px;font-weight:700}
+.err:empty{display:none}
+.calc{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* tabs */
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--plum-soft);padding:4px;border-radius:12px;position:sticky;top:env(safe-area-inset-top,0px);z-index:2}
+.tabs button{background:transparent;color:var(--ink);font-size:13px;padding:8px 4px;min-width:0;line-height:1.3;font-weight:500}
+.tabs button[aria-selected="true"]{background:var(--surface);font-weight:700;color:var(--plum)}
+.tabs small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px;color:var(--muted);font-weight:500}
+.panel{display:flex;flex-direction:column;gap:24px}
+
+/* result card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden}
+.card .num{position:absolute;right:-8px;top:-32px;font-family:var(--display);font-size:168px;line-height:1;color:var(--gold-soft);pointer-events:none}
+.tag{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:0 12px;align-self:flex-start;position:relative}
+.card h2{font-size:clamp(24px,6.5vw,32px);position:relative}
+.card .catch{position:relative}
+.traits{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:relative}
+.traits div{background:var(--bg);border-radius:8px;padding:8px 12px}
+.traits dt{font-size:12px;color:var(--muted)}
+.traits dd{margin:0;font-weight:700;font-size:15px}
+@media (max-width:440px){.traits{grid-template-columns:1fr}}
+.sec{display:flex;flex-direction:column;gap:4px}
+.sec h3{font-size:17px;color:var(--plum)}
+.lock{border-top:1px dashed var(--line);padding-top:16px;display:flex;flex-direction:column;gap:8px}
+.lock ul{margin:0;padding-left:1.2em;color:var(--muted)}
+.cta{background:var(--gold);color:#1B1530;font-size:17px;padding:16px 24px}
+.cta[aria-disabled="true"]{opacity:.55;cursor:default}
+.share{display:flex;gap:8px;flex-wrap:wrap}
+.share .btn{flex:1 1 140px;font-size:14px;padding-inline:12px;background:var(--plum-soft);color:var(--ink)}
+
+/* boss manual */
+.manual{display:flex;flex-direction:column;gap:0;position:relative}
+.manual div{display:grid;grid-template-columns:112px 1fr;gap:12px;padding-block:12px;border-top:1px solid var(--line)}
+.manual dt{font-size:13px;color:var(--muted);font-weight:700}
+.manual dd{margin:0}
+@media (max-width:440px){.manual div{grid-template-columns:1fr;gap:0}}
+.pair{display:flex;flex-direction:column;align-items:flex-start;gap:12px;background:var(--plum-soft);border-radius:12px;padding:16px;position:relative}
+.pair .nums{font-family:var(--mono);font-size:20px;white-space:nowrap;color:var(--plum)}
+.pair p{font-size:15px}
+
+/* calendar */
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cal-head h2{font-size:22px}
+.cal-head button{background:var(--plum-soft);color:var(--ink);padding:8px 16px;font-size:18px}
+.today-card{border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.today-card .big{font-family:var(--display);font-size:22px;font-weight:800}
+.week{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.week li{display:grid;grid-template-columns:60px 60px 1fr;gap:8px;align-items:center;padding-block:8px;border-top:1px solid var(--line);font-size:14px;line-height:1.5}
+.week .dt{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.pill{display:inline-block;text-align:center;border-radius:99px;padding:2px 8px;font-size:12px;font-weight:700;white-space:nowrap}
+.k-use{background:var(--gold-soft);color:var(--gold)}
+.k-hold{background:var(--plum-soft);color:var(--plum)}
+.k-tidy{background:var(--surface);color:var(--muted);box-shadow:inset 0 0 0 1px var(--muted)}
+.legend{display:flex;gap:8px;flex-wrap:wrap}
+.sun{color:var(--sun)}.sat{color:var(--sat)}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cal .dow{font-size:12px;font-weight:700;text-align:center;color:var(--muted);padding-block:4px}
+.cal button{border:0;color:var(--ink);padding:4px 0;min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-weight:500;border-radius:8px;min-width:0}
+.cal button .d{font-family:var(--mono);font-size:17px;line-height:1.1;font-variant-numeric:tabular-nums}
+.cal button .l{font-size:10px;font-weight:700;line-height:1.1;white-space:nowrap}
+.cal button.today{box-shadow:0 0 0 2px var(--gold) inset}
+.cal button[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink) inset}
+.dayinfo{background:var(--bg);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.dayinfo .dh{display:flex;align-items:center;gap:8px;font-weight:700;flex-wrap:wrap}
+.dayinfo .calc{margin-top:4px}
+.sub{font-size:15px;font-family:var(--display);margin-top:8px}
+.count{font-size:14px;color:var(--muted)}
+
+.all h2{font-size:22px;margin-bottom:12px}
+.grid9{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.grid9 button{background:var(--surface);border:1px solid var(--line);color:var(--ink);font-weight:500;padding:12px 8px;display:flex;flex-direction:column;gap:0;font-size:13px;line-height:1.4}
+.grid9 button b{font-family:var(--mono);color:var(--gold);font-size:15px}
+.grid9 button[aria-current="true"]{border-color:var(--gold);background:var(--gold-soft)}
+.mgroup{display:flex;flex-direction:column;gap:0;position:relative}
+.mgroup h3{font-size:17px;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.mark{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;font-family:var(--body);font-size:15px}
+.m-good{background:var(--gold-soft);color:var(--gold)}
+.m-ok{background:var(--plum-soft);color:var(--plum)}
+.m-care{background:var(--bg);color:var(--muted);box-shadow:inset 0 0 0 1px var(--muted)}
+.mgroup details{border-top:1px solid var(--line)}
+.mgroup summary{list-style:none;display:grid;grid-template-columns:48px 1fr 20px;gap:12px;align-items:center;padding-block:8px;cursor:pointer}
+.mgroup summary::-webkit-details-marker{display:none}
+.mgroup summary img,.mgroup summary svg{width:48px;height:48px}
+.mgroup summary .nm{font-weight:700;line-height:1.4}
+.mgroup summary .nm small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+.mgroup summary::after{content:"＋";color:var(--muted);font-size:16px;text-align:center}
+.mgroup details[open] summary::after{content:"−"}
+.mgroup summary:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.mdetail{padding:0 0 16px 60px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.mdetail b{display:block;font-size:13px;color:var(--plum)}
+@media (max-width:400px){.mdetail{padding-left:0}}
+.mnote{font-size:13px;color:var(--muted);background:var(--bg);border-radius:8px;padding:12px 16px;position:relative}
+.note{font-size:12px;color:var(--muted);line-height:1.7}
+
+/* characters */
+.chara{display:grid;grid-template-columns:128px 1fr;gap:16px;align-items:center;position:relative}
+.chara svg,.chara img{width:128px;height:128px;max-width:100%}
+.bubble{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 16px;position:relative;font-size:15px}
+.bubble::before{content:"";position:absolute;left:-7px;top:24px;width:12px;height:12px;background:var(--bg);border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+.bubble .cn{display:block;font-family:var(--display);font-weight:800;font-size:18px;color:var(--ink)}
+.bubble .an{font-size:12px;color:var(--muted)}
+@media (max-width:480px){.chara{grid-template-columns:1fr;justify-items:center}.chara svg,.chara img{width:150px;height:150px}.bubble::before{left:50%;top:-7px;margin-left:-6px;transform:rotate(135deg)}.tabs small{display:none}}
+.grid9 button svg,.grid9 button img{width:56px;height:56px;margin-inline:auto}
+.pop svg,.pop img{animation:pop .5s ease-out}
+@keyframes pop{0%{transform:scale(.6) rotate(-8deg)}70%{transform:scale(1.06)}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.pop svg,.pop img,.guide img{animation:none}*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <p class="eyebrow">まねき占い堂｜生年月日の数秘術でわかる</p>
+      <h1>あなたの<em>仕事×お金</em>タイプ診断</h1>
+      <p class="lead">生まれた日の数字を足すと、1〜9のどれかになります。あなたの稼ぎ方のクセ、9タイプとの相性、今月お金を使っていい日まで読み解きます。</p>
+    </div>
+    <figure class="guide"><img src="../images/brand.webp" alt="まねき占い堂" width="512" height="512"><figcaption>まねき占い堂の無料診断<br>9匹のうち、誰になるかな？</figcaption></figure>
+  </header>
+
+  <form class="form" id="f">
+<fieldset class="ymdset" style="border:0;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">
+      <legend style="font-weight:700;font-size:15px;padding:0;margin-bottom:8px">あなたの生年月日</legend>
+      <div class="row">
+        <div class="ymd">
+          <label><input id="by" inputmode="numeric" autocomplete="off" maxlength="10" placeholder="1995" aria-label="年">年</label>
+          <label><input id="bm" class="md" inputmode="numeric" autocomplete="off" maxlength="2" placeholder="4" aria-label="月">月</label>
+          <label><input id="bd" class="md" inputmode="numeric" autocomplete="off" maxlength="2" placeholder="12" aria-label="日">日</label>
+        </div>
+        <button class="go" type="submit">診断する</button>
+      </div>
+      <p class="err" id="err" role="alert"></p>
+    </fieldset>
+    <p class="calc" id="calc">1+9+9+5+0+4+1+2 = 31 → 3+1 = 4</p>
+  </form>
+
+  <nav class="tabs" role="tablist" aria-label="診断メニュー">
+    <button type="button" role="tab" id="tab-me" aria-controls="p-me" aria-selected="true">あなた<small>仕事×お金タイプ</small></button>
+    <button type="button" role="tab" id="tab-match" aria-controls="p-match" aria-selected="false">相性<small>9タイプとの相性</small></button>
+    <button type="button" role="tab" id="tab-cal" aria-controls="p-cal" aria-selected="false">財布の紐<small>今月のカレンダー</small></button>
+  </nav>
+
+  <!-- あなた -->
+  <section class="panel" id="p-me" role="tabpanel" aria-labelledby="tab-me">
+    <article class="card" id="card" aria-live="polite"></article>
+    <div class="share">
+      <a class="btn" id="shareX" href="#" target="_blank" rel="noopener">Xで結果をシェア</a>
+      <a class="btn" id="shareTh" href="#" target="_blank" rel="noopener">Threadsでシェア</a>
+    </div>
+    <div class="all">
+      <h2>9つのタイプ一覧</h2>
+      <div class="grid9" id="grid9"></div>
+    </div>
+  </section>
+
+  <!-- 相性 -->
+  <section class="panel" id="p-match" role="tabpanel" aria-labelledby="tab-match" hidden>
+    <article class="card" id="mcard" aria-live="polite"></article>
+    <div class="share">
+      <a class="btn" id="mshareX" href="#" target="_blank" rel="noopener">相性をXでシェア</a>
+      <a class="btn" id="mshareTh" href="#" target="_blank" rel="noopener">Threadsでシェア</a>
+    </div>
+  </section>
+
+  <!-- カレンダー -->
+  <section class="panel" id="p-cal" role="tabpanel" aria-labelledby="tab-cal" hidden>
+    <div class="card">
+      <div class="today-card" id="todayCard" aria-live="polite"></div>
+      <h3 class="sub">これからの7日間</h3>
+      <ul class="week" id="week"></ul>
+      <div class="cal-head" style="margin-top:8px">
+        <button type="button" id="prev" aria-label="前の月">‹</button>
+        <h2 id="calTitle">2026年9月</h2>
+        <button type="button" id="next" aria-label="次の月">›</button>
+      </div>
+      <p class="count" id="calCount"></p>
+      <div class="legend">
+        <span class="pill k-use">使う＝使っていい日</span>
+        <span class="pill k-hold">締める＝締める日</span>
+        <span class="pill k-tidy">整える＝整える日</span>
+      </div>
+      <div class="cal" id="cal"></div>
+      <div class="dayinfo" id="dayinfo" aria-live="polite"></div>
+    </div>
+    <div class="share">
+      <a class="btn" id="cshareX" href="#" target="_blank" rel="noopener">今月の予定をXでシェア</a>
+      <a class="btn" id="cshareTh" href="#" target="_blank" rel="noopener">Threadsでシェア</a>
+    </div>
+  </section>
+
+  <p style="text-align:center"><a href="../" style="color:var(--plum);font-weight:700">まねき占い堂のトップへ</a></p>
+  <p class="note">この診断は数秘術をもとにしたエンターテインメントです。収入や投資の成果を保証するものではありません。お金に関する大きな判断は、専門家への相談もあわせてご検討ください。入力した生年月日は、この画面の中で計算するだけで送信・保存はされません。</p>
+</div>
+
+<script>
+/* ===== 設定：公開後に書き換える ===== */
+const NOTE_URL = "";   // note有料記事のURL（空のあいだは「準備中」表示）
+const SITE_URL = "https://maneki-uranai.netlify.app/suuhi/";
+const HASHTAG  = "仕事とお金の数秘診断 #まねき占い堂";
+
+const TYPES = {
+1:{name:"一番槍の開拓者",catch:"誰もやっていない場所で、最初に旗を立てて稼ぐ人。",work:"立ち上げ・新規開拓",money:"決断が早い",weak:"熱しやすく冷めやすい",
+ job:"新しい事業や企画の立ち上げ役、成果報酬の営業など、自分の判断で動ける場所で数字が伸びます。指示待ちの環境だと力が半分も出ません。",
+ cash:"「これだ」と思った瞬間の決断力が収入を連れてきます。ただ、始めたことを途中で放り出すと、それまでの投資が回収されずに残りがちです。",
+ luck:"ずっと温めていた企画を1つだけ人に話してみること。"},
+2:{name:"縁で稼ぐ調整役",catch:"人と人をつなぐだけで、自然とお金が回ってくる人。",work:"チーム・橋渡し",money:"紹介から入る",weak:"断れない",
+ job:"表に立つより、誰かの右腕や窓口として力を発揮します。紹介・仲介・サポート職で「あなたに頼みたい」が増えるほど収入も伸びます。",
+ cash:"お金はたいてい人経由で入ってきます。逆に、頼まれるとつい払ってしまう付き合いの出費が一番の穴です。",
+ luck:"最近会っていない人に一言だけ連絡してみること。"},
+3:{name:"発信で稼ぐ表現者",catch:"楽しそうに話しているだけで、人が集まり財布が開く人。",work:"発信・企画・接客",money:"好きが収入になる",weak:"気分でお金を使う",
+ job:"SNS発信、販売、講師など「伝える」仕事で真価が出ます。退屈なルーティンが続くと一気にやる気が落ちるタイプです。",
+ cash:"好きなことを話しているときに収入の芽が出ます。一方で、気分が上がった日の買い物がそのまま赤字の原因になりやすいです。",
+ luck:"自分が詳しいことを1つ投稿してみること。"},
+4:{name:"コツコツ資産家",catch:"派手さはないのに、気づけば一番お金が残っている人。",work:"仕組み化・専門職",money:"積み上げ型",weak:"守りに入りすぎる",
+ job:"手順を整え、正確に積み上げる仕事で評価されます。事務・経理・技術職・管理職など、信頼が年数で増える場所が向いています。",
+ cash:"毎月の積立や固定費の見直しなど、地味な習慣が最終的に大きな差になります。ただ、慎重すぎてチャンスを見送る回数も多めです。",
+ luck:"毎月の固定費を1つだけ見直してみること。"},
+5:{name:"複数収入の旅人",catch:"ひとつの財布に縛られず、あちこちから稼ぎを集める人。",work:"副業・複業・営業",money:"入口が多い",weak:"出口も多い",
+ job:"変化のある環境や、移動・人との出会いが多い仕事で伸びます。本業＋副業のように、収入源を2つ以上持つと安定するタイプです。",
+ cash:"入ってくるルートは多いのに、同じくらい出ていくルートも多いのが特徴です。記録をつけるだけで手元の残りが変わります。",
+ luck:"副業のアイデアを3つ書き出してみること。"},
+6:{name:"信頼で稼ぐ世話役",catch:"「あの人なら安心」と言われることが、そのまま収入になる人。",work:"ケア・サービス",money:"信頼の貯金",weak:"自分を後回し",
+ job:"人の役に立っている実感がある仕事で長く続きます。福祉・医療・教育・接客・相談業で、指名やリピートが増えやすいタイプです。",
+ cash:"信頼が積み上がるほど、単価や紹介が自然に上がっていきます。ただ、自分のためにお金を使うことに罪悪感を持ちやすいです。",
+ luck:"自分へのごほうびを1つ先に予定に入れること。"},
+7:{name:"専門で稼ぐ探究者",catch:"ひとつのことを深く掘るほど、値段がつくようになる人。",work:"研究・分析・技術",money:"知識が資産",weak:"売るのが苦手",
+ job:"分析・研究・技術・専門資格など、知識の深さがそのまま価値になる仕事が合います。浅く広い仕事ではストレスがたまりがちです。",
+ cash:"知識や技術にかけたお金が、あとから何倍にもなって返ってきます。弱点は、自分の価値を安く見積もってしまうことです。",
+ luck:"自分の得意を1行で説明できる文を作ること。"},
+8:{name:"お金を動かす経営者",catch:"お金を「貯める」より「動かす」ことで増やしていく人。",work:"経営・管理・交渉",money:"大きく回す",weak:"勝負しすぎる",
+ job:"数字と人を動かす立場で力が出ます。管理職、経営、交渉ごと、成果が金額で見える仕事ほどやりがいを感じます。",
+ cash:"お金の流れを読む力があり、投資や事業で増やすのが得意です。反面、一度の大勝負で大きく失う可能性もあるので、上限を決めるのが鍵です。",
+ luck:"お金の目標を具体的な数字で書き出すこと。"},
+9:{name:"想いで稼ぐ理想家",catch:"「誰かのため」を仕事にしたとき、いちばん稼げる人。",work:"社会貢献・創作",money:"共感で集まる",weak:"お金の話を避ける",
+ job:"社会的な意義や、誰かを助ける目的がある仕事で長く走れます。NPO、クリエイティブ、教育、地域の仕事などと相性が良いです。",
+ cash:"想いに共感した人が応援としてお金を払ってくれるタイプです。ただ、お金の話を避けているうちに、損な条件を受けてしまうことがあります。",
+ luck:"自分の仕事の値段を一度書き出して見直すこと。"}
+};
+
+/* 相性（付き合い方のヒント。良し悪しの断定や、相手を動かす・お金を出させる表現は入れない） */
+const TR = {
+1:{good:"決めてすぐ動く力",value:"スピード",tip:"結論から先に話す",joint:"候補を2つに絞ってから相談する"},
+2:{good:"人と人をつなぐ力",value:"みんなの納得",tip:"二人で落ち着いて話す",joint:"お互いの本音を先に聞いてから決める"},
+3:{good:"場を明るくする力",value:"楽しさ",tip:"雑談まじりに気軽に話す",joint:"楽しみに使う分を先に決めておく"},
+4:{good:"コツコツ積み上げる力",value:"安心と計画",tip:"理由と手順をそろえて話す",joint:"金額と予定を書き出して共有する"},
+5:{good:"変化に強い身軽さ",value:"自由",tip:"短く、選択肢つきで話す",joint:"決めたことはその場でメッセージに残す"},
+6:{good:"人を支える優しさ",value:"思いやり",tip:"困ったときは素直に頼る",joint:"相手の分だけでなく自分の分も大事に考える"},
+7:{good:"深く調べる力",value:"納得できる理由",tip:"理由や情報を先に伝える",joint:"比べる材料をそろえて、考える時間を取る"},
+8:{good:"物事を前に進める力",value:"結果",tip:"目的・期限・中身をひとまとめに話す",joint:"目標と期限を最初に決める"},
+9:{good:"理想を描く力",value:"意味や目的",tip:"「何のためか」から話す",joint:"何のために使うお金かを先に話し合う"}
+};
+/* ◎：1・5・7／2・4・8／3・6・9 の同じ組。△：となり合う数字（9と1もとなり） */
+const MATCH=(a,b)=>{
+  if(a===b) return "same";
+  const g=n=>[1,5,7].includes(n)?0:[2,4,8].includes(n)?1:2;
+  if(g(a)===g(b)) return "good";
+  const d=Math.abs(a-b); if(d===1||d===8) return "care";
+  return "ok";
+};
+const MLABEL={good:"一緒にいてラクな相手",ok:"得意を任せ合える相手",care:"すれ違いやすい相手"};
+const MMARK={good:"◎",ok:"○",care:"△"};
+function matchText(a,b){
+  const A=TR[a],B=TR[b],k=MATCH(a,b);
+  const why={
+    same:`似た者同士。${A.value}を大事にする気持ちが同じなので、言わなくても通じることが多い組み合わせです。ただ、苦手なところも同じなので、お互いに見落としやすい点があります。`,
+    good:`大事にしているもの（あなたは${A.value}、相手は${B.value}）の向きが近く、一緒にいて疲れにくい組み合わせです。相手の${B.good}が、あなたの背中を自然に押してくれます。`,
+    ok:`タイプは違いますが、相手は${B.good}を持つ人。お互いの得意を任せ合うと、一人のときより物事がうまく回ります。`,
+    care:`あなたは${A.value}、相手は${B.value}を大事にするので、同じことでも優先順位がずれやすい組み合わせです。ただ、あなたにない${B.good}を持っている相手でもあります。`
+  }[k];
+  return {k,why,tip:`${B.tip}と、気持ちが伝わりやすい相手です。`,
+    joint:`あなたは「${A.joint}」、相手は「${B.joint}」がしっくりくるタイプ。両方を取り入れると、話がまとまりやすくなります。`};
+}
+
+/* 財布の紐カレンダー（個人日数） */
+const DAY = {
+1:{short:"自己投資に使うと◎",k:"use",msg:"始める日。自分への投資（本・講座・道具）にお金を使うと、あとで返ってきやすい日。"},
+2:{short:"大きな買い物は一晩待つ",k:"tidy",msg:"待つ日。大きな買い物は一晩寝かせて。人からの誘いへの出費も、今日は即決しないこと。"},
+3:{short:"上限を決めて楽しむ",k:"use",msg:"楽しむ日。遊びや人付き合いに使ってOK。ただし先に上限を決めてから財布を開いて。"},
+4:{short:"固定費を1つ見直す",k:"hold",msg:"締める日。固定費やサブスクを1つ見直すのに最適。衝動買いはいつもより後悔しやすい日。"},
+5:{short:"セール・衝動買いに注意",k:"hold",msg:"財布が緩む日。セール・ポイント還元・「今だけ」に要注意。買う前に一度カートを閉じて。"},
+6:{short:"人への差し入れが◎",k:"use",msg:"人に使う日。家族や同僚へのちょっとした差し入れが、信頼になって返ってくる日。"},
+7:{short:"買わずに比べるだけ",k:"hold",msg:"調べる日。買うより比べる日。気になる物はリストに入れるだけにして、購入は別の日に。"},
+8:{short:"交渉・稼ぐ行動に◎",k:"use",msg:"お金が動く日。値段交渉、昇給や単価の相談、副業の申し込みなど「稼ぐ側」の行動に◎。"},
+9:{short:"不要品を売る・解約する",k:"tidy",msg:"手放す日。使っていない物を売る・解約する・財布の中のレシートを捨てる。空いた所に次のお金が入る。"}
+};
+const KLABEL={use:"使う",hold:"締める",tidy:"整える"};
+const KNAME={use:"使っていい日",hold:"締める日",tidy:"整える日"};
+
+
+/* ===== キャラクター ===== */
+const CHARA = {
+1:{name:"イノいちばん",animal:"イノシシ",quip:"考えるより先に、もう申し込んだよ。"},
+2:{name:"てつなぎラッコ",animal:"ラッコ",quip:"あの人とあの人、会わせたら面白いと思うんだ。"},
+3:{name:"しゃべりインコ",animal:"インコ",quip:"この話、明日も誰かにしゃべっちゃう。"},
+4:{name:"ためこみリス",animal:"リス",quip:"どんぐり1個でも、冬にはちゃんと効いてくるの。"},
+5:{name:"わたりツバメ",animal:"ツバメ",quip:"財布は3つあるよ。中身は…あんまり聞かないで。"},
+6:{name:"おかんクマ",animal:"クマ",quip:"ちゃんと食べた？自分の分も取っときなよ。"},
+7:{name:"ものしりフクロウ",animal:"フクロウ",quip:"ちょっと調べるつもりが、もう3時間たってた。"},
+8:{name:"しゃちょライオン",animal:"ライオン",quip:"で、それ、いくら返ってくるの？"},
+9:{name:"ゆめみるゾウ",animal:"ゾウ",quip:"いつか、みんなが笑える仕事をしたいんだ。"}
+};
+const INK="#2A2340";
+/* 画像がある番号だけ images/chara_N.webp を使う。ない番号はコード描画の絵 */
+const IMAGES = [1,2,3,4,5,6,7,8,9];
+function charaSVG(n,label){
+  if(IMAGES.includes(n)) return `<img src="images/chara_${n}.webp" alt="${label||CHARA[n].name}" width="512" height="512" loading="lazy" style="aspect-ratio:1;border-radius:50%;object-fit:cover">`;
+  const eyes=(y=60,white=false)=>white
+    ?`<circle cx="48" cy="${y}" r="6" fill="#fff"/><circle cx="72" cy="${y}" r="6" fill="#fff"/><circle cx="49" cy="${y+1}" r="3.5" fill="${INK}"/><circle cx="73" cy="${y+1}" r="3.5" fill="${INK}"/>`
+    :`<circle cx="48" cy="${y}" r="4.5" fill="${INK}"/><circle cx="72" cy="${y}" r="4.5" fill="${INK}"/><circle cx="49.5" cy="${y-1.5}" r="1.5" fill="#fff"/><circle cx="73.5" cy="${y-1.5}" r="1.5" fill="#fff"/>`;
+  const cheeks=(y=70)=>`<ellipse cx="38" cy="${y}" rx="6" ry="4" fill="#F29A9A" opacity=".7"/><ellipse cx="82" cy="${y}" rx="6" ry="4" fill="#F29A9A" opacity=".7"/>`;
+  const smile=(y)=>`<path d="M54 ${y} Q60 ${y+6} 66 ${y}" stroke="${INK}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+  const face=(c)=>`<circle cx="60" cy="64" r="34" fill="${c}"/>`;
+  const B={
+  1:`<polygon points="28,30 50,42 34,56" fill="#8A5238"/><polygon points="92,30 70,42 86,56" fill="#8A5238"/>${face("#A8704F")}
+     <line x1="100" y1="16" x2="100" y2="58" stroke="${INK}" stroke-width="3" stroke-linecap="round"/><polygon points="100,16 116,23 100,30" fill="#E2574C"/>
+     ${eyes(56)}${cheeks(66)}<ellipse cx="60" cy="78" rx="15" ry="11" fill="#E0AE92"/><ellipse cx="55" cy="78" rx="2.5" ry="3.5" fill="${INK}"/><ellipse cx="65" cy="78" rx="2.5" ry="3.5" fill="${INK}"/>
+     <polygon points="44,84 40,94 49,88" fill="#fff"/><polygon points="76,84 80,94 71,88" fill="#fff"/>`,
+  2:`<circle cx="34" cy="38" r="8" fill="#6F6152"/><circle cx="86" cy="38" r="8" fill="#6F6152"/>${face("#8B7B6B")}
+     ${eyes(58)}${cheeks(70)}<ellipse cx="60" cy="76" rx="18" ry="12" fill="#EDE2D2"/><ellipse cx="60" cy="71" rx="5" ry="3.5" fill="${INK}"/>
+     <path d="M40 74 L26 71 M40 78 L26 80 M80 74 L94 71 M80 78 L94 80" stroke="${INK}" stroke-width="1.5" stroke-linecap="round"/>${smile(78)}
+     <path d="M100 30 c-4 -6 -12 -2 -8 5 l8 8 l8 -8 c4 -7 -4 -11 -8 -5z" fill="#E2574C"/>`,
+  3:`<ellipse cx="52" cy="30" rx="5" ry="10" fill="#F2C94C" transform="rotate(-20 52 30)"/><ellipse cx="60" cy="26" rx="5" ry="11" fill="#F2C94C"/><ellipse cx="68" cy="30" rx="5" ry="10" fill="#F2C94C" transform="rotate(20 68 30)"/>
+     ${face("#4DB36A")}${eyes(58)}${cheeks(68)}<polygon points="52,68 68,68 60,82" fill="#F29E4C"/>
+     <line x1="98" y1="88" x2="92" y2="106" stroke="${INK}" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="84" r="8" fill="#5B5670"/>`,
+  4:`<ellipse cx="96" cy="64" rx="17" ry="34" fill="#C7743A" transform="rotate(20 96 64)"/><path d="M96 34 q14 -4 12 12" stroke="#A85F2E" stroke-width="4" fill="none"/>
+     <polygon points="34,20 52,42 30,46" fill="#E08A45"/><polygon points="86,20 68,42 90,46" fill="#E08A45"/>${face("#E08A45")}
+     ${eyes(58)}${cheeks(70)}<ellipse cx="60" cy="76" rx="15" ry="11" fill="#F6D8B8"/><ellipse cx="60" cy="71" rx="4" ry="3" fill="${INK}"/>${smile(77)}
+     <ellipse cx="22" cy="96" rx="9" ry="11" fill="#B5763A"/><path d="M12 92 q10 -12 20 0z" fill="#7A4E27"/><line x1="22" y1="82" x2="22" y2="86" stroke="#7A4E27" stroke-width="3"/>`,
+  5:`<polygon points="86,86 112,108 98,86" fill="#2E3A6B"/><polygon points="86,86 104,112 94,84" fill="#2E3A6B"/>${face("#2E3A6B")}
+     <ellipse cx="60" cy="82" rx="22" ry="15" fill="#FFFFFF"/><ellipse cx="60" cy="72" rx="11" ry="7" fill="#D9534F"/>
+     ${eyes(56,true)}<polygon points="55,63 65,63 60,70" fill="#F2C94C"/>
+     <rect x="10" y="88" width="24" height="18" rx="3" fill="#C9853A"/><path d="M17 88 v-5 h10 v5" stroke="${INK}" stroke-width="2.5" fill="none"/><line x1="10" y1="96" x2="34" y2="96" stroke="#9A6224" stroke-width="2"/>`,
+  6:`<circle cx="32" cy="36" r="11" fill="#9C6B45"/><circle cx="32" cy="36" r="5" fill="#E3B48F"/><circle cx="88" cy="36" r="11" fill="#9C6B45"/><circle cx="88" cy="36" r="5" fill="#E3B48F"/>
+     ${face("#9C6B45")}${eyes(58)}${cheeks(70)}<ellipse cx="60" cy="76" rx="15" ry="11" fill="#E3B48F"/><ellipse cx="60" cy="71" rx="5" ry="3.5" fill="${INK}"/>${smile(77)}
+     <path d="M34 42 Q60 20 86 42 L80 34 Q60 22 40 34z" fill="#E2574C"/>
+     <rect x="92" y="88" width="20" height="16" rx="3" fill="#fff" stroke="${INK}" stroke-width="2"/><path d="M112 92 q6 4 0 8" stroke="${INK}" stroke-width="2" fill="none"/><path d="M98 84 q-3 -5 0 -9 M106 84 q-3 -5 0 -9" stroke="#B9B2CC" stroke-width="2" fill="none" stroke-linecap="round"/>`,
+  7:`<polygon points="30,26 46,40 30,46" fill="#6E604F"/><polygon points="90,26 74,40 90,46" fill="#6E604F"/>${face("#8A7A66")}
+     <circle cx="47" cy="60" r="13" fill="#EFE3CF"/><circle cx="73" cy="60" r="13" fill="#EFE3CF"/>${eyes(60)}
+     <circle cx="47" cy="60" r="13" fill="none" stroke="${INK}" stroke-width="2.5"/><circle cx="73" cy="60" r="13" fill="none" stroke="${INK}" stroke-width="2.5"/><line x1="58" y1="58" x2="62" y2="58" stroke="${INK}" stroke-width="2.5"/>
+     <polygon points="55,74 65,74 60,84" fill="#F29E4C"/>
+     <rect x="88" y="90" width="24" height="16" rx="2" fill="#5E3A93"/><line x1="100" y1="90" x2="100" y2="106" stroke="#fff" stroke-width="1.5"/>`,
+  8:`${[...Array(12)].map((_,i)=>{const a=i/12*2*Math.PI;return `<circle cx="${60+34*Math.cos(a)}" cy="${62+34*Math.sin(a)}" r="13" fill="#C9772E"/>`;}).join("")}
+     <circle cx="60" cy="62" r="30" fill="#F2C063"/><circle cx="36" cy="38" r="7" fill="#F2C063"/><circle cx="84" cy="38" r="7" fill="#F2C063"/>
+     ${eyes(56)}${cheeks(66)}<ellipse cx="60" cy="74" rx="13" ry="9" fill="#FBE3B0"/><polygon points="55,68 65,68 60,74" fill="${INK}"/>${smile(76)}
+     <polygon points="54,94 66,94 62,100 64,114 60,118 56,114 58,100" fill="#3B4A8C"/>`,
+  9:`<ellipse cx="26" cy="62" rx="18" ry="24" fill="#B8C8DA"/><ellipse cx="94" cy="62" rx="18" ry="24" fill="#B8C8DA"/>${face("#9FB3C8")}
+     ${eyes(54)}${cheeks(64)}<path d="M52 66 Q52 92 66 100 Q74 104 76 96" stroke="#9FB3C8" stroke-width="13" fill="none" stroke-linecap="round"/>
+     <path d="M100 14 l4 9 l9 4 l-9 4 l-4 9 l-4 -9 l-9 -4 l9 -4z" fill="#E2B659"/><circle cx="18" cy="26" r="3" fill="#E2B659"/>`
+  };
+  return `<svg viewBox="0 0 120 120" role="img" aria-label="${label||CHARA[n].name}"><circle cx="60" cy="62" r="56" style="fill:var(--plum-soft)"/>${B[n]}</svg>`;
+}
+
+/* ===== 計算 ===== */
+const $=id=>document.getElementById(id);
+const reduce=n=>{while(n>9){n=String(n).split("").reduce((a,b)=>a+ +b,0);}return n;};
+function lifePath(str){
+  const d=str.replace(/-/g,"").split("").map(Number);
+  let sum=d.reduce((a,b)=>a+b,0); const steps=[d.join("+")+" = "+sum];
+  while(sum>9){const s=String(sum).split("").map(Number);sum=s.reduce((a,b)=>a+b,0);steps.push(s.join("+")+" = "+sum);}
+  return {n:sum,text:steps.join(" → ")};
+}
+/* 個人年数 = 誕生月日の数字 + 今年の数字、個人日数 = 個人年数 + 月 + 日 */
+const digitSum=s=>String(s).split("").reduce((a,b)=>a+ +b,0);
+function personalDay(birth,y,m,d){
+  const [,bm,bd]=birth.split("-");
+  const py=reduce(digitSum(bm)+digitSum(bd)+digitSum(y));
+  const pd=reduce(py+digitSum(m)+digitSum(d));
+  return {py,pd};
+}
+
+let me=4, meBirth="1995-04-12", meFromInput=false;
+const now=new Date(); let vy=now.getFullYear(), vm=now.getMonth()+1, selDay=now.getDate();
+
+/* wheel */
+const wheel=$("wheel");
+if(wheel) for(let i=1;i<=9;i++){const s=document.createElement("span");s.textContent=i;s.id="w"+i;const a=(i-1)/9*2*Math.PI-Math.PI/2;s.style.left=(76+60*Math.cos(a))+"px";s.style.top=(76+60*Math.sin(a))+"px";wheel.appendChild(s);}
+function paintWheel(showBoss){
+  if(!wheel) return;
+  document.querySelectorAll(".wheel span").forEach(s=>s.classList.remove("on","boss"));
+  $("w"+me).classList.add("on"); $("core").textContent=me;
+  if(showBoss && boss!==me) $("w"+boss).classList.add("boss");
+}
+
+/* type list */
+const grid=$("grid9");
+for(let i=1;i<=9;i++){const b=document.createElement("button");b.type="button";b.id="t"+i;b.innerHTML=`${charaSVG(i)}<b>${i}</b>${CHARA[i].name}`;b.addEventListener("click",()=>renderMe(i,true));grid.appendChild(b);}
+
+const intent=(base,text,hash)=>base+encodeURIComponent(text+(SITE_URL?`\n${SITE_URL}${hash?"#"+hash:""}`:""));
+function setShare(xId,thId,text,hash){$(xId).href=intent("https://x.com/intent/post?text=",text,hash);$(thId).href=intent("https://www.threads.net/intent/post?text=",text,hash);}
+
+function renderMe(n,browse,shared){
+  const t=TYPES[n], c=CHARA[n]; const shown=n;
+  document.querySelectorAll(".grid9 button").forEach(b=>b.setAttribute("aria-current",String(+b.id.slice(1)===n)));
+  const ready=!!NOTE_URL;
+  const tag = shared?`<span class="tag">シェアされた結果です。あなたは何のキャラ？上で診断できます</span>`:browse?'<span class="tag">タイプ一覧から表示中</span>':(!meFromInput?'<span class="tag">例：1995年4月12日生まれの場合</span>':'');
+  $("card").innerHTML=`
+    <div class="num" aria-hidden="true">${n}</div>${tag}
+    <p class="eyebrow" style="position:relative">数秘 ${n}</p>
+    <h2>${c.name}<br><small style="font-size:.6em">＝ ${t.name}タイプ</small></h2>
+    <div class="chara pop">${charaSVG(n)}<p class="bubble"><span class="cn">${c.name}</span><span class="an">${c.animal}｜数秘${n}</span><br>「${c.quip}」</p></div>
+    <p class="catch">${t.catch}</p>
+    <dl class="traits">
+      <div><dt>向いている働き方</dt><dd>${t.work}</dd></div>
+      <div><dt>お金の増え方</dt><dd>${t.money}</dd></div>
+      <div><dt>お金が逃げるクセ</dt><dd>${t.weak}</dd></div>
+    </dl>
+    <div class="sec"><h3>仕事の特徴</h3><p>${t.job}</p></div>
+    <div class="sec"><h3>お金の特徴</h3><p>${t.cash}</p></div>
+    <div class="sec"><h3>今月の開運アクション</h3><p>${t.luck}</p></div>
+    <div class="lock">
+      <p><b>完全版（note）で読めること</b></p>
+      <ul>
+        <li>${t.name}タイプが収入を伸ばしやすい副業の選び方</li>
+        <li>2026〜2027年の仕事運・金運の流れ（月ごと）</li>
+        <li>相性の良い人・お金の話が合う人のタイプ</li>
+        <li>お金が逃げるクセを止める具体的な3つの習慣</li>
+      </ul>
+      <a class="btn cta" ${ready?`href="${NOTE_URL}" target="_blank" rel="noopener"`:'href="#" aria-disabled="true" data-off="1"'}>${ready?"完全版をnoteで読む":"完全版note　公開準備中"}</a>
+    </div>`;
+  setShare("shareX","shareTh",`私は数秘${shown}の【${c.name}】でした。\n口ぐせは「${c.quip}」\n\n…当たってる。\n#${HASHTAG}`,"type"+shown);
+}
+
+function renderMatch(){
+  const c=CHARA[me];
+  const tag=!meFromInput?'<span class="tag">例：1995年4月12日生まれの場合。上で生年月日を入れると、あなたの相性に変わります</span>':'';
+  const rows={good:[],ok:[],care:[]};
+  for(let n=1;n<=9;n++){
+    const m=matchText(me,n); const k=m.k==="same"?"ok":m.k;
+    rows[k].push(`<details><summary>${charaSVG(n)}<span class="nm">${CHARA[n].name}<small>${n===me?"あなたと同じタイプ｜":""}数秘${n}｜${TYPES[n].name}</small></span></summary>
+      <div class="mdetail"><p><b>どんな組み合わせ？</b>${m.why}</p><p><b>うまくいくコツ</b>${m.tip}</p><p><b>一緒にお金のことを決めるとき（旅行・家計・割り勘など）</b>${m.joint}</p></div></details>`);
+  }
+  const grp=k=>`<section class="mgroup"><h3><span class="mark m-${k}">${MMARK[k]}</span>${MLABEL[k]}</h3>${rows[k].join("")}</section>`;
+  $("mcard").innerHTML=`${tag}
+    <p class="eyebrow" style="position:relative">あなた＝数秘${me}｜${c.name}</p>
+    <h2>${c.name}と<br>9タイプの相性</h2>
+    <p style="position:relative">気になるキャラをタップすると、どんな組み合わせか、うまくいくコツが見られます。家族・友達・パートナー・同僚、誰との関係にも使えます。</p>
+    ${grp("good")}${grp("ok")}${grp("care")}
+    <p class="mnote">相性は良し悪しを決めるものではなく、付き合い方のヒントです。△の相手ほど、あなたにない見方を教えてくれることもあります。</p>`;
+  const goods=[];for(let n=1;n<=9;n++) if(MATCH(me,n)==="good") goods.push(CHARA[n].name);
+  setShare("mshareX","mshareTh",`私は【${c.name}】。\n一緒にいてラクなのは ${goods.join("と")} らしい。\n\nあなたは何のキャラ？\n#${HASHTAG}`,"type"+me);
+}
+
+function renderCal(){
+  const who=meFromInput?"あなた":"例（1995年4月12日生まれ）";
+  const WD="日月火水木金土";
+  // 今日
+  const t0=personalDay(meBirth,now.getFullYear(),now.getMonth()+1,now.getDate()); const ti=DAY[t0.pd];
+  $("todayCard").className="today-card k-"+ti.k;
+  $("todayCard").innerHTML=`<p style="font-size:13px;font-weight:700">${who}の今日　${now.getMonth()+1}月${now.getDate()}日（${WD[now.getDay()]}）</p>
+    <p class="big">${KNAME[ti.k]}</p><p style="color:var(--ink)">${ti.msg}</p>`;
+  // 7日間
+  const wk=$("week"); wk.innerHTML="";
+  for(let i=1;i<=7;i++){
+    const dt=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i);
+    const {pd}=personalDay(meBirth,dt.getFullYear(),dt.getMonth()+1,dt.getDate()); const x=DAY[pd];
+    const wdc=dt.getDay()===0?"sun":dt.getDay()===6?"sat":"";
+    const li=document.createElement("li");
+    li.innerHTML=`<span class="dt">${dt.getMonth()+1}/${dt.getDate()} <span class="${wdc}">${WD[dt.getDay()]}</span></span><span class="pill k-${x.k}">${KLABEL[x.k]}</span><span>${x.short}</span>`;
+    wk.appendChild(li);
+  }
+  // 月カレンダー
+  $("calTitle").textContent=`${vy}年${vm}月`;
+  const cal=$("cal"); cal.innerHTML="";
+  WD.split("").forEach((w,i)=>{const e=document.createElement("div");e.className="dow"+(i===0?" sun":i===6?" sat":"");e.textContent=w;cal.appendChild(e);});
+  const first=new Date(vy,vm-1,1).getDay(), days=new Date(vy,vm,0).getDate();
+  if(selDay>days) selDay=days;
+  for(let i=0;i<first;i++) cal.appendChild(document.createElement("div"));
+  const cnt={use:0,hold:0,tidy:0};
+  for(let d=1;d<=days;d++){
+    const {pd}=personalDay(meBirth,vy,vm,d); const k=DAY[pd].k; cnt[k]++;
+    const wd=(first+d-1)%7;
+    const b=document.createElement("button"); b.type="button"; b.id=`d${d}`; b.className="k-"+k;
+    const isT=vy===now.getFullYear()&&vm===now.getMonth()+1&&d===now.getDate();
+    if(isT) b.classList.add("today");
+    b.setAttribute("aria-label",`${vm}月${d}日 ${KNAME[k]}${isT?"（今日）":""}`);
+    b.setAttribute("aria-pressed",String(d===selDay));
+    b.innerHTML=`<span class="d ${wd===0?"sun":wd===6?"sat":""}">${d}</span><span class="l">${isT?"今日":KLABEL[k]}</span>`;
+    b.addEventListener("click",()=>{selDay=d;renderCal();});
+    cal.appendChild(b);
+  }
+  const {py,pd}=personalDay(meBirth,vy,vm,selDay); const info=DAY[pd];
+  const isToday=vy===now.getFullYear()&&vm===now.getMonth()+1&&selDay===now.getDate();
+  $("calCount").textContent=`${who}の${vm}月：使っていい日 ${cnt.use}日／締める日 ${cnt.hold}日／整える日 ${cnt.tidy}日`;
+  $("dayinfo").innerHTML=`
+    <p class="dh"><span class="pill k-${info.k}">${KLABEL[info.k]}</span>${vm}月${selDay}日${isToday?"（今日）":""}は ${KNAME[info.k]}</p>
+    <p>${info.msg}</p>
+    <p class="calc">${vy}年のあなたの数字 ${py} ＋ ${vm}月 ＋ ${selDay}日 → この日の数字 ${pd}</p>`;
+  setShare("cshareX","cshareTh",`${vm}月の私の「財布の紐カレンダー」\n使っていい日 ${cnt.use}日／締める日 ${cnt.hold}日\n\n今日は【${KNAME[ti.k]}】\n${ti.msg}\n\n#${HASHTAG}`,"calendar");
+}
+
+/* tabs */
+const TABS={me:"p-me",match:"p-match",cal:"p-cal"};
+function showTab(k){
+  Object.entries(TABS).forEach(([key,pid])=>{$("tab-"+key).setAttribute("aria-selected",String(key===k));$(pid).hidden=key!==k;});
+  paintWheel(false);
+}
+Object.keys(TABS).forEach(k=>$("tab-"+k).addEventListener("click",()=>showTab(k)));
+
+/* 手打ち入力 */
+const MAXY=now.getFullYear(), MINY=1900;
+const half=v=>v.replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-0xFEE0)).replace(/[^0-9\/\-\.年月日 ]/g,"");
+function wireYMD(p){
+  const y=$(p+"y"),m=$(p+"m"),d=$(p+"d");
+  y.addEventListener("input",()=>{
+    const v=half(y.value);
+    const parts=v.split(/[\/\-\. 年月日]+/).filter(Boolean);
+    if(parts.length>=3){y.value=parts[0];m.value=parts[1];d.value=parts[2];d.focus();return;}
+    const digits=v.replace(/\D/g,"");
+    if(digits.length===8){y.value=digits.slice(0,4);m.value=String(+digits.slice(4,6));d.value=String(+digits.slice(6));d.focus();return;}
+    y.value=digits.slice(0,4); if(y.value.length===4) m.focus();
+  });
+  m.addEventListener("input",()=>{m.value=half(m.value).replace(/\D/g,"").slice(0,2); if(m.value.length===2||(+m.value>1)) d.focus();});
+  d.addEventListener("input",()=>{d.value=half(d.value).replace(/\D/g,"").slice(0,2);});
+  [m,d].forEach((el,i)=>el.addEventListener("keydown",e=>{if(e.key==="Backspace"&&!el.value){e.preventDefault();[y,m][i].focus();}}));
+}
+function readYMD(p,errId){
+  const els=["y","m","d"].map(k=>$(p+k)); els.forEach(e=>e.removeAttribute("aria-invalid"));
+  const [Y,M,D]=els.map(e=>+half(e.value)||0);
+  const bad=(i,msg)=>{els[i].setAttribute("aria-invalid","true");els[i].focus();$(errId).textContent=msg;return null;};
+  if(!Y) return bad(0,"生まれた年を西暦4けたで入れてください（例：1995）");
+  if(Y<MINY||Y>MAXY) return bad(0,`年は${MINY}〜${MAXY}の間で入れてください`);
+  if(M<1||M>12) return bad(1,"月は1〜12で入れてください");
+  const last=new Date(Y,M,0).getDate();
+  if(D<1||D>last) return bad(2,`${Y}年${M}月は1〜${last}日までです`);
+  if(new Date(Y,M-1,D)>now) return bad(2,"未来の日付は入れられません");
+  $(errId).textContent="";
+  return `${Y}-${String(M).padStart(2,"0")}-${String(D).padStart(2,"0")}`;
+}
+wireYMD("b");
+
+/* events */
+$("f").addEventListener("submit",e=>{
+  e.preventDefault(); const v=readYMD("b","err"); if(!v) return;
+  const r=lifePath(v); me=r.n; meBirth=v; meFromInput=true; $("calc").textContent=r.text;
+  renderMe(me,false); renderMatch(); renderCal();
+});
+$("prev").addEventListener("click",()=>{vm--;if(vm<1){vm=12;vy--;}selDay=1;renderCal();});
+$("next").addEventListener("click",()=>{vm++;if(vm>12){vm=1;vy++;}selDay=1;renderCal();});
+document.addEventListener("click",e=>{const a=e.target.closest('[data-off="1"]');if(a)e.preventDefault();});
+
+renderMe(me,false); renderMatch(); renderCal();
+const h=location.hash.replace("#","");
+showTab(h==="match"||h==="boss"?"match":h==="calendar"?"cal":"me");
+const mt=h.match(/^type([1-9])$/); if(mt) renderMe(+mt[1],true,true);
+</script>
+
+</body>
+</html>

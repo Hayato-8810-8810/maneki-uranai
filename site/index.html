@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>まねき占い堂</title>
+<meta name="description" content="福を招く、無料の診断いろいろ。生年月日や好きなものから、あなたのタイプを読み解きます。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="まねき占い堂">
+<meta property="og:title" content="まねき占い堂｜福を招く、無料の診断いろいろ">
+<meta property="og:description" content="いま公開中：仕事とお金の数秘診断。生年月日で9匹のどれかに。">
+<meta property="og:url" content="https://maneki-uranai.netlify.app/">
+<meta property="og:image" content="https://maneki-uranai.netlify.app/images/ogp_top.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/brand.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#F6F4FA; --surface:#FDFCFF; --ink:#221C3A; --muted:#6B6582; --line:#E2DDEE;
+  --gold:#9A6E1C; --gold-soft:#F3E8CF; --plum:#5E3A93; --plum-soft:#ECE4F7; --on-plum:#FFFFFF;
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#14112A; --surface:#1E1A38; --ink:#EDE8F7; --muted:#A9A2C2; --line:#332D55;
+    --gold:#E2B659; --gold-soft:#3A3020; --plum:#B99AF0; --plum-soft:#2B2450; --on-plum:#14112A; color-scheme:dark;}
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.85;letter-spacing:.02em;word-break:auto-phrase;padding-inline:16px;padding-block:40px 56px}
+img{max-width:100%}
+.wrap{max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+h1,h2{font-family:var(--display);font-weight:800;line-height:1.4;letter-spacing:.04em;margin:0;text-wrap:balance}
+p{margin:0}
+.brand{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.brand img{width:112px;height:112px;border-radius:50%}
+.brand h1{font-size:clamp(34px,9vw,48px)}
+.brand p{color:var(--plum);font-weight:700}
+.sec-title{font-size:13px;letter-spacing:.18em;color:var(--gold);font-weight:700}
+.list{display:flex;flex-direction:column;gap:16px}
+.item{display:flex;flex-direction:column;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;color:inherit;text-decoration:none}
+.item:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.item .tag{align-self:flex-start;font-size:12px;font-weight:700;color:var(--gold);background:var(--gold-soft);border-radius:99px;padding:0 12px}
+.item h2{font-size:clamp(24px,6.5vw,30px)}
+.item p{color:var(--muted)}
+.strip{display:grid;grid-template-columns:repeat(9,1fr);gap:4px}
+.strip img{width:100%;height:auto;aspect-ratio:1;border-radius:50%}
+.go{align-self:flex-start;background:var(--plum);color:var(--on-plum);font-weight:700;border-radius:8px;padding:12px 24px}
+.soon{border:1px dashed var(--muted);border-radius:16px;padding:16px 24px;color:var(--muted);font-size:14px;text-align:center}
+.sns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.sns a{color:var(--plum);font-weight:700}
+.note{font-size:12px;color:var(--muted);line-height:1.7;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="brand">
+    <img src="images/brand.webp" alt="" width="512" height="512">
+    <h1>まねき占い堂</h1>
+    <p>福を招く、無料の診断いろいろ。</p>
+  </header>
+
+  <section class="list" aria-labelledby="t1">
+    <p class="sec-title" id="t1">いま公開中の診断</p>
+    <a class="item" href="suuhi/">
+      <span class="tag">無料・30秒</span>
+      <h2>仕事とお金の数秘診断</h2>
+      <div class="strip" aria-hidden="true">
+        <img src="suuhi/images/chara_1.webp" alt="" width="512" height="512">
+        <img src="suuhi/images/chara_2.webp" alt="" width="512" height="512">
+        <img src="suuhi/images/chara_3.webp" alt="" width="512" height="512">
+        <img src="suuhi/images/chara_4.webp" alt="" width="512" height="512">
+        <img src="suuhi/images/chara_5.webp" alt="" width="512" height="512">
+        <img src="suuhi/images/chara_6.webp" alt="" width="512" height="512">
+        <img src="suuhi/images/chara_7.webp" alt="" width="512" height="512">
+        <img src="suuhi/images/chara_8.webp" alt="" width="512" height="512">
+        <img src="suuhi/images/chara_9.webp" alt="" width="512" height="512">
+      </div>
+      <p>生年月日を足すだけで、あなたは9匹のどれかに。稼ぎ方のクセ、9タイプとの相性、今月お金を使っていい日までわかります。</p>
+      <span class="go">診断する</span>
+    </a>
+    <p class="soon">新しい診断を準備中です。公開したらSNSでお知らせします。</p>
+  </section>
+
+  <nav class="sns" id="sns" aria-label="SNS" hidden></nav>
+
+  <p class="note">まねき占い堂の診断はエンターテインメントです。収入や投資の成果を保証するものではありません。<br>入力した生年月日は、画面の中で計算するだけで送信・保存はされません。</p>
+</div>
+<script>
+/* SNSのURLが決まったら入れる（空のものは表示しない） */
+const X_URL = "";
+const THREADS_URL = "";
+const links=[["X",X_URL],["Threads",THREADS_URL]].filter(l=>l[1]);
+if(links.length){const n=document.getElementById("sns");n.innerHTML=links.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${t}でフォロー</a>`).join("");n.hidden=false;}
+</script>
+</body>
+</html>

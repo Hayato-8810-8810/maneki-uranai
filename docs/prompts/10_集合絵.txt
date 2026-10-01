@@ -1,0 +1,10 @@
+【おまけ｜9匹の集合絵（アカウントのヘッダー・note見出し用）】
+
+▼ プロンプト
+a group illustration of nine cute chibi animal mascots standing together in a friendly row: a reddish-brown baby boar holding a red flag, a grey-brown sea otter with a small heart, a green budgie with a yellow crest holding a microphone, an orange squirrel hugging an acorn, a navy swallow with a small suitcase, a brown bear cub in a red bandana and apron holding a teacup, a grey owl with round glasses and a purple book, a golden lion cub with an orange mane and navy necktie, a blue-grey baby elephant holding a gold star with its trunk, Japanese kawaii style, 2-head proportion, clean thick rounded dark-plum outline, flat colors with soft cel shading, plain pale lavender background (#ECE4F7), wide banner composition 3:1, no text
+
+▼ ネガティブプロンプト
+text, letters, logo, watermark, signature, realistic, photo, 3D render, scary, sharp teeth, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ 保存ファイル名の例
+chara_all_header.png

@@ -1,0 +1,11 @@
+【まねき占い堂｜招き猫アイコン】
+絵のポイント：白い招き猫が右手（向かって左）を上げて手招き。左手で小判を持つ。首に赤い首輪と金の鈴。占い屋らしく、紫の小さな占い師の帽子か、星の模様のケープ。9匹のキャラと同じ絵柄。
+
+▼ プロンプト（英語のままコピー）
+a cute chibi maneki-neko lucky cat mascot, white cat with small orange and black calico patches, sitting and facing the viewer, right paw raised in a beckoning gesture, holding a gold koban coin in the other paw, red collar with a golden bell, wearing a small deep purple fortune-teller hood with tiny gold stars, gentle closed-eye happy smile, soft pink blush on the cheeks, Japanese kawaii style, 2-head proportion, clean thick rounded dark-plum outline, flat colors with soft cel shading, centered on a plain pale lavender circle background (#ECE4F7), lots of empty space around, simple and friendly, sticker-like, high quality illustration, square 1:1, no text
+
+▼ ネガティブプロンプト
+text, letters, logo, watermark, realistic, photo, 3D render, scary, multiple characters, extra limbs, cropped body, busy background, existing anime or game characters
+
+▼ コツ
+9匹のうち1枚（ためこみリスなど）を参考画像として添えて「この画像と同じ絵柄で」と足すと、絵柄がそろいます。
