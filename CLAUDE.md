@@ -18,7 +18,7 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
   - `site/suuhi/index.html` … 仕事とお金の数秘診断（1ファイル完結）
   - `site/suuhi/images/` … chara_1〜9.webp（512px丸切り抜き）、ogp.png（1200×630）
 - `docs/prompts/` … キャラ画像の生成プロンプト（公開されない）
-- `docs/assets/` … SNS用の画像（icon.png＝アイコン、header_x.png＝Xヘッダー。公開されない）
+- `docs/assets/` … SNS用の画像（icon.png＝アイコン、header_x.png＝Xヘッダー、post_9types.png＝投稿用の9タイプ一覧）。`originals/` に9匹と招き猫の元画像（1254px）。公開されない
 - 公開URL：https://maneki-uranai.netlify.app/ ／ 数秘診断 https://maneki-uranai.netlify.app/suuhi/
 
 ## 数秘診断（site/suuhi/index.html）の中身
