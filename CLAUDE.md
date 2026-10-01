@@ -7,6 +7,7 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 ## ブランド
 - 屋号：まねき占い堂（総合占いアカウント。診断を今後増やす）。この数秘診断はその1本目
 - 顔：招き猫（三毛猫・紫の星柄の帽子とケープ・小判・金の鈴）。SNSアイコンは docs/assets/icon.png、サイト内は site/images/brand.webp
+- X：https://x.com/maneki_uranai （@maneki_uranai）／Threads：未作成
 - ハッシュタグ：#仕事とお金の数秘診断 #まねき占い堂
 - プロフィールのリンクはトップ、投稿からの誘導は各診断のURL
 

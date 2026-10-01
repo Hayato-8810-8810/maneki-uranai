@@ -93,7 +93,7 @@ p{margin:0}
 </div>
 <script>
 /* SNSのURLが決まったら入れる（空のものは表示しない） */
-const X_URL = "";
+const X_URL = "https://x.com/maneki_uranai";
 const THREADS_URL = "";
 const links=[["X",X_URL],["Threads",THREADS_URL]].filter(l=>l[1]);
 if(links.length){const n=document.getElementById("sns");n.innerHTML=links.map(([t,u])=>`<a href="${u}" target="_blank" rel="noopener">${t}でフォロー</a>`).join("");n.hidden=false;}
