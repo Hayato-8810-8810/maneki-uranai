@@ -14,7 +14,7 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 
 ## リポジトリ構成
 - `site/` … 公開されるサイト（Netlify は netlify.toml で site/ だけを公開。push すると自動で本番に反映）
-  - `site/index.html` … まねき占い堂のトップ（診断一覧）。SNSリンクは下部の nav.sns に直接書く（Threadsは作成後に追加）
+  - `site/index.html` … まねき占い堂のトップ（診断一覧）。SNSリンクは下部の nav.sns に直接書く（X・Threads・Instagram の3つ）
   - `site/images/` … brand.webp（店のマーク）、ogp_top.png（トップのリンクカード）
   - `site/suuhi/index.html` … 仕事とお金の数秘診断（1ファイル完結）
   - `site/suuhi/images/` … chara_1〜9.webp（512px丸切り抜き）、ogp.png（1200×630）
@@ -22,6 +22,9 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
   - `site/aura/images/ogp.png` … リンクカード（1200×630）
 - `docs/prompts/` … キャラ画像の生成プロンプト（公開されない）
 - `docs/assets/` … SNS用の画像（icon.png＝アイコン、header_x.png＝Xヘッダー、post_9types.png＝投稿用の9タイプ一覧）。`originals/` に9匹と招き猫の元画像（1254px）。公開されない
+  - `docs/assets/instagram/` … Instagram用カード（1080×1350）。chara_card_1〜9＝数秘の9キャラ、aura_01〜10＝魂の色診断のスワイプ10枚
+- `docs/sns/` … 診断ごとのSNS投稿文とリプ返信の型（aura_posts.md）
+- `docs/tools/make_instagram_aura.py` … 魂の色のInstagramカードを site/aura/index.html の文章から作り直すスクリプト（`python3 docs/tools/make_instagram_aura.py 出力先フォルダ`。Playwrightが必要）
 - 公開URL：https://maneki-uranai.netlify.app/ ／ 数秘診断 https://maneki-uranai.netlify.app/suuhi/ ／ 魂の色診断 https://maneki-uranai.netlify.app/aura/
 
 ## 数秘診断（site/suuhi/index.html）の中身
@@ -70,3 +73,23 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 - 新しい診断は `site/診断名/` に追加し、トップ `site/index.html` の一覧に足す（既存のURLは変えない）
 - 画像は 512px の WebP に圧縮してから置く。リンクカード画像は 1200×630
 - 公開前にスマホ幅360pxで横スクロールが出ないか、画像が全部出るかを確認する
+
+## SNS運用のきまり
+- Xは無料版（プレミアムなし）。投稿文は全角140字以内で、短めに書く。プレミアムは、毎日投稿が続いて反応が安定してから検討
+- Threadsはハッシュタグを本文に入れず、トピック欄に1つ付ける
+- Instagramはキャプション内のURLが押せないので「プロフィールのリンクから」と案内する。画像は 1080×1350
+- 投稿文に、本人がやっていない診断結果や作り話の体験を書かない
+- 診断の文章を変えたら、Instagramカードも作り直す（文章はサイトと同じものを使う）
+
+## いまの状況（2026-10-03）
+- 公開済み：数秘診断（1本目）、魂の色診断（2本目・2026-10-02公開）。どちらも本番で表示確認済み
+- 魂の色診断の告知文（X・Threads・Instagram）とInstagramカード10枚は作成済み。投稿は本人が行う
+- 未完了：note有料記事がまだなく、両診断とも `NOTE_URL` が空（結果画面のボタンは「公開準備中」）。記事ができたらURLを入れる
+- 次にやること：3本目の占いを考える
+
+## 3本目の候補メモ
+2本目を決めるときに出して、選ばなかった案：
+- 月相バースデー診断（生まれた日の月の形で性質を読む。生年月日入力・夜空の世界観）
+- 今夜のタロット1枚引き（毎日引ける。再訪・毎日投稿向き）
+- 前世の記憶診断（物語性が強くシェアされやすい）
+決めるときの軸：入力方法（生年月日／質問／1タップ）、テーマ（1本目＝仕事・お金、2本目＝恋愛・縁 とかぶらないもの）、見た目（明るい／暗い）、毎日来てもらえるか
