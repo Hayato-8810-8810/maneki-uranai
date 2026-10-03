@@ -98,7 +98,8 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 
 ## いまの状況（2026-10-03）
 - 公開済み：数秘診断（1本目）、魂の色診断（2本目・2026-10-02公開）。どちらも本番で表示確認済み
-- 3本目「今日の一枚（タロット）」を作成。スマホ幅360pxで動作確認済み。告知文は docs/sns/tarot_posts.md、Instagram表紙は docs/assets/instagram/tarot_01.png
+- 3本目「今日の一枚（タロット）」は【非公開中】。2026-10-03に一度公開したあと、本人の希望で本番から外した。完成版は `tarot-today` ブランチの `site/` にある（main の `site/` には tarot がなく、トップの一覧も2本のまま）。本人から「公開して」と言われたら `git checkout tarot-today -- site/` で戻して main に push する。それまで公開しない
+- 作成時にスマホ幅360pxで動作確認済み。告知文は docs/sns/tarot_posts.md、Instagram表紙は docs/assets/instagram/tarot_01.png
 - 魂の色診断の告知文（X・Threads・Instagram）とInstagramカード10枚は作成済み。投稿は本人が行う
 - 未完了：note有料記事がまだなく、3診断とも `NOTE_URL` が空（結果画面のボタンは「公開準備中」）。記事ができたらURLを入れる
 
