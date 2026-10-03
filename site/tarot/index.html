@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>今日の一枚（タロット）｜まねき占い堂</title>
+<title>福めくりタロット｜まねき占い堂</title>
 <meta name="description" content="招き猫がタロットを1枚めくる、1日1回の無料占い。今日のことば、やるといいこと、小さなラッキーアクションまで。引いた札は図鑑にたまります。">
 <meta name="theme-color" content="#F7F1E3">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="まねき占い堂">
-<meta property="og:title" content="今日の一枚（タロット）｜まねき占い堂">
+<meta property="og:title" content="福めくりタロット｜まねき占い堂">
 <meta property="og:description" content="招き猫がタロットを1枚めくる、1日1回の無料占い。今日のすごし方のヒントに。">
 <meta property="og:url" content="https://maneki-uranai.netlify.app/tarot/">
 <meta property="og:image" content="https://maneki-uranai.netlify.app/tarot/images/ogp.png">
@@ -44,7 +44,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .panel{display:flex;flex-direction:column;gap:24px}
 .hero{text-align:center;display:flex;flex-direction:column;gap:8px}
 .eyebrow{font-size:13px;letter-spacing:.2em;color:var(--gold);font-weight:700}
-.hero h1{font-size:clamp(34px,10vw,46px)}
+.hero h1{font-size:clamp(32px,9.6vw,46px)}
 .hero p{color:var(--muted)}
 
 /* 札 */
@@ -128,7 +128,7 @@ button{font:inherit;color:inherit;cursor:pointer}
     <section class="panel" id="draw">
       <div class="hero">
         <p class="eyebrow">TAROT · 1日1枚</p>
-        <h1>今日の一枚</h1>
+        <h1>福めくりタロット</h1>
         <p>招き猫が、あなたの今日のために<br>タロットを1枚めくります。</p>
       </div>
       <div class="pick" id="pick"></div>
@@ -204,8 +204,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 /* ===== 設定値 ===== */
 const NOTE_URL = "";   // note有料記事のURL（空のあいだは「公開準備中」表示）
 const SITE_URL = "https://maneki-uranai.netlify.app/tarot/";
-const HASHTAG  = "#今日の一枚 #まねき占い堂";
-const IG_TAGS  = "#今日の一枚 #まねき占い堂 #タロット #タロット占い #今日の運勢";
+const HASHTAG  = "#福めくりタロット #まねき占い堂";
+const IG_TAGS  = "#福めくりタロット #まねき占い堂 #タロット #タロット占い #今日の運勢";
 const KEY = "maneki_tarot_v1";   // 端末内の記録（日付・引いた札・図鑑）。送信しない
 
 /* ===== 22枚（大アルカナ・正位置。番号はウェイト版：8＝力、11＝正義） ===== */
@@ -316,7 +316,7 @@ function renderResult(i,mode){
   if(mine){
     const head=`今日の一枚は「${c.name}」でした。\n${c.catch}`;
     $("sx").href=intent("https://x.com/intent/post?text=",head+"\n"+HASHTAG,i);
-    $("sth").href=intent("https://www.threads.net/intent/post?text=",head,i);   // Threadsは本文にハッシュタグを入れない
+    $("sth").href=intent("https://www.threads.net/intent/post?text=","福めくりタロットで、"+head,i);   // Threadsは本文にハッシュタグを入れない
     $("igmsg").hidden=true;
     if(igFor!==i){igBlob=null;igFor=i;makeImage(i).then(b=>{if(igFor===i)igBlob=b}).catch(()=>{});}
     history.replaceState(null,"","#card"+i);
@@ -355,12 +355,12 @@ function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w
 async function makeImage(i){
   const c=CARDS[i],W=1080,H=1350,MIN='800 %dpx "Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif',GO='500 %dpx "Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif';
   const f=(t,s)=>t.replace("%d",s);
-  try{await Promise.all([document.fonts.load(f(MIN,40),c.name+c.catch+"今日の一枚"),document.fonts.load(f(GO,40),c.kotoba),brandImg.decode()]);}catch(e){}
+  try{await Promise.all([document.fonts.load(f(MIN,40),c.name+c.catch+"福めくりタロット今日の一枚"),document.fonts.load(f(GO,40),c.kotoba),brandImg.decode()]);}catch(e){}
   const cv=document.createElement("canvas");cv.width=W;cv.height=H;const x=cv.getContext("2d");
   x.fillStyle="#F7F1E3";x.fillRect(0,0,W,H);
   x.strokeStyle="#B93A24";x.lineWidth=3;rr(x,36,36,W-72,H-72,28);x.stroke();
   x.textAlign="center";x.textBaseline="alphabetic";
-  x.fillStyle="#8A6212";x.font=f(GO,30);x.fillText(todayLabel()+"　今日の一枚",W/2,128);
+  x.fillStyle="#8A6212";x.font=f(GO,30);x.fillText("福めくりタロット　"+todayLabel()+"の一枚",W/2,128);
   // 札
   const cw=400,ch=640,cx=(W-cw)/2,cy=170;
   x.save();x.shadowColor="rgba(60,40,10,.3)";x.shadowBlur=40;x.shadowOffsetY=14;

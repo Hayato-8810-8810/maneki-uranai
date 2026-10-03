@@ -2,14 +2,14 @@
 
 ## 目的
 X・Threads で発信 → この診断サイト → note 有料記事へ誘導する。
-1本目「仕事とお金の数秘診断」（生年月日の数秘1〜9）、2本目「魂の色診断」（8問の質問で8色のオーラ／恋愛・人との縁）、3本目「今日の一枚」（タロット1日1枚／今日のすごし方）。
+1本目「仕事とお金の数秘診断」（生年月日の数秘1〜9）、2本目「魂の色診断」（8問の質問で8色のオーラ／恋愛・人との縁）、3本目「福めくりタロット」（タロット1日1枚／今日のすごし方）。
 
 ## ブランド
 - 屋号：まねき占い堂（総合占いアカウント。診断を今後増やす）。数秘診断が1本目、魂の色診断が2本目
 - 顔：招き猫（三毛猫・紫の星柄の帽子とケープ・小判・金の鈴）。SNSアイコンは docs/assets/icon.png、サイト内は site/images/brand.webp
 - X：https://x.com/maneki_uranai （@maneki_uranai）
 - Instagram：https://www.instagram.com/manekiuranai ／ Threads：https://www.threads.com/@manekiuranai （どちらも @manekiuranai、アンダーバーなし）
-- ハッシュタグ：#仕事とお金の数秘診断 #まねき占い堂（魂の色診断は #魂の色診断 #まねき占い堂、今日の一枚は #今日の一枚 #まねき占い堂）
+- ハッシュタグ：#仕事とお金の数秘診断 #まねき占い堂（魂の色診断は #魂の色診断 #まねき占い堂、福めくりタロットは #福めくりタロット #まねき占い堂）
 - プロフィールのリンクはトップ、投稿からの誘導は各診断のURL
 
 ## リポジトリ構成
@@ -20,15 +20,15 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
   - `site/suuhi/images/` … chara_1〜9.webp（512px丸切り抜き）、ogp.png（1200×630）
   - `site/aura/index.html` … 魂の色診断（1ファイル完結。画像はCSSのオーブで描くのでキャラ画像なし）
   - `site/aura/images/ogp.png` … リンクカード（1200×630）
-- `site/tarot/index.html` … 今日の一枚（タロット。1ファイル完結。札の図柄はコードで描くので札の画像なし）
+- `site/tarot/index.html` … 福めくりタロット（1ファイル完結。札の図柄はコードで描くので札の画像なし）
   - `site/tarot/images/ogp.png` … リンクカード（1200×630）
 - `docs/prompts/` … キャラ画像の生成プロンプト（公開されない）
 - `docs/assets/` … SNS用の画像（icon.png＝アイコン、header_x.png＝Xヘッダー、post_9types.png＝投稿用の9タイプ一覧）。`originals/` に9匹と招き猫の元画像（1254px）。公開されない
   - `docs/assets/instagram/` … Instagram用カード（1080×1350）。chara_card_1〜9＝数秘の9キャラ、aura_01〜10＝魂の色診断のスワイプ10枚
 - `docs/sns/` … 診断ごとのSNS投稿文とリプ返信の型（aura_posts.md）
 - `docs/tools/make_instagram_aura.py` … 魂の色のInstagramカードを site/aura/index.html の文章から作り直すスクリプト（`python3 docs/tools/make_instagram_aura.py 出力先フォルダ`。Playwrightが必要）
-- `docs/tools/make_tarot_images.py` … 今日の一枚のリンクカードとInstagram表紙（tarot_01.png）を作り直すスクリプト（`python3 docs/tools/make_tarot_images.py`）
-- 公開URL：https://maneki-uranai.netlify.app/ ／ 数秘診断 https://maneki-uranai.netlify.app/suuhi/ ／ 魂の色診断 https://maneki-uranai.netlify.app/aura/ ／ 今日の一枚 https://maneki-uranai.netlify.app/tarot/
+- `docs/tools/make_tarot_images.py` … 福めくりタロットのリンクカードとInstagram表紙（tarot_01.png）を作り直すスクリプト（`python3 docs/tools/make_tarot_images.py`）
+- 公開URL：https://maneki-uranai.netlify.app/ ／ 数秘診断 https://maneki-uranai.netlify.app/suuhi/ ／ 魂の色診断 https://maneki-uranai.netlify.app/aura/ ／ 福めくりタロット https://maneki-uranai.netlify.app/tarot/
 
 ## 数秘診断（site/suuhi/index.html）の中身
 - タブ1「あなた」：数秘タイプ＋キャラ＋口ぐせ＋note誘導
@@ -51,7 +51,8 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 - 設定値（script 冒頭）：`NOTE_URL`（空だと公開準備中）、`SITE_URL` https://maneki-uranai.netlify.app/aura/ 、`HASHTAG` #魂の色診断 #まねき占い堂
 - 根拠の書き方：実在しない流派・専門家・統計・的中率は書かない。△の読みはこの診断独自と明記
 
-## 今日の一枚（site/tarot/index.html）の中身
+## 福めくりタロット（site/tarot/index.html）の中身
+- 名前：2026-10-03に「今日の一枚」から「福めくりタロット」に変更（日めくり＋福を招く＋札をめくる）。URLは /tarot/ のまま。画面の中の「今日の一枚」はタブ名や「今日の一枚は〇〇でした」という普通の言い方として残している
 - 見た目：明るい和風（和紙色＋朱＋金）。ライトモード固定。札の裏は朱色に招き猫
 - 伏せた3枚から1枚タップ → めくる演出（約4秒、「結果をすぐ見る」で飛ばせる。動きを減らす設定の人は短縮）→ 結果。どの札をタップしても22枚から無作為に1枚
 - 札：大アルカナ22枚・正位置のみ（番号はウェイト版：8＝力、11＝正義）。`CARDS` の並びは [名前, 英名, 色, 明るい色, ひとこと, 今日のことば, やるといいこと, ひかえめにすること, ラッキーアクション]。図柄は `ART`（100×100のパス。画面とInstagram用画像で共通）
@@ -59,7 +60,7 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 - タブ2「札の図鑑」：引いた札が22枚の一覧にたまる。タップで読み直せる。まだの札は「？」
 - 投稿ボタン（自分がその日に引いた札のときだけ出る）：Xに投稿／Threadsに投稿（Threadsは本文にハッシュタグなし）／Instagram用の画像をつくる（1080×1350の画像を画面内で作り、スマホは共有メニュー、PCは保存。投稿文は自動でコピー）。Instagramはサイトから投稿画面を直接開く方法がないので、この形にしている
 - URL末尾 `#card0`〜`#card21` でその札を直接開く（自分の今日の札でなければ「シェアされた札」表示＋「わたしも引く」ボタン）。`#zukan` で図鑑
-- 設定値（script 冒頭）：`NOTE_URL`（空だと公開準備中）、`SITE_URL` https://maneki-uranai.netlify.app/tarot/ 、`HASHTAG` #今日の一枚 #まねき占い堂、`IG_TAGS`（Instagram用の投稿文に付くタグ）
+- 設定値（script 冒頭）：`NOTE_URL`（空だと公開準備中）、`SITE_URL` https://maneki-uranai.netlify.app/tarot/ 、`HASHTAG` #福めくりタロット #まねき占い堂、`IG_TAGS`（Instagram用の投稿文に付くタグ）
 - 根拠の書き方：タロットの一般的な意味をもとにした、まねき占い堂の読みと明記。死神・塔・悪魔など怖い札も否定で終わらせない（区切り・立て直し・気づき）。体調や投資の断定は書かない
 
 ## 設定値（site/suuhi/index.html の script 冒頭）
@@ -75,7 +76,7 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 
 ## 守ること
 - 占いはエンタメ表記を残す。収入・投資の成果を保証する表現は入れない
-- 生年月日や回答は送信・保存しない（画面内の計算のみ）。例外は「今日の一枚」の引いた札で、端末の中にだけ記録する（送信はしない）。トップと診断ページの注意書きにもそう書いてある
+- 生年月日や回答は送信・保存しない（画面内の計算のみ）。例外は「福めくりタロット」の引いた札で、端末の中にだけ記録する（送信はしない）。トップと診断ページの注意書きにもそう書いてある
 - 恋愛・縁の診断でも、相手を思い通りにする・引き止める・振り向かせると読める表現は入れない。恋人に限らず友だち・家族にも読める言葉にする
 - 相性は「付き合い方のヒント」として書く。相性を使って相手を動かす・お金を出させる・引き出すと読める表現は入れない。△も否定で終わらせない
 - 会社員以外（学生・主婦・自営業・シニア）も使える言葉にする。「上司」「部下」は使わない
@@ -93,12 +94,12 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 - Threadsはハッシュタグを本文に入れず、トピック欄に1つ付ける
 - Instagramはキャプション内のURLが押せないので「プロフィールのリンクから」と案内する。画像は 1080×1350
 - 投稿文に、本人がやっていない診断結果や作り話の体験を書かない
-- 毎日の「今日の一枚」投稿は、本人が実際に引いた札で、結果画面の投稿ボタンから行う
+- 毎日の「福めくりタロット」投稿は、本人が実際に引いた札で、結果画面の投稿ボタンから行う
 - 診断の文章を変えたら、Instagramカードも作り直す（文章はサイトと同じものを使う）
 
 ## いまの状況（2026-10-03）
 - 公開済み：数秘診断（1本目）、魂の色診断（2本目・2026-10-02公開）。どちらも本番で表示確認済み
-- 3本目「今日の一枚（タロット）」を作成。スマホ幅360pxで動作確認済み。告知文は docs/sns/tarot_posts.md、Instagram表紙は docs/assets/instagram/tarot_01.png
+- 3本目「福めくりタロット」を作成。スマホ幅360pxで動作確認済み。告知文は docs/sns/tarot_posts.md、Instagram表紙は docs/assets/instagram/tarot_01.png
 - 魂の色診断の告知文（X・Threads・Instagram）とInstagramカード10枚は作成済み。投稿は本人が行う
 - 未完了：note有料記事がまだなく、3診断とも `NOTE_URL` が空（結果画面のボタンは「公開準備中」）。記事ができたらURLを入れる
 

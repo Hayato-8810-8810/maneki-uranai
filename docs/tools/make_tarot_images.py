@@ -1,4 +1,4 @@
-# 今日の一枚（タロット）のリンクカード（1200×630）とInstagram表紙（1080×1350）を、site/tarot/index.html の札から作り直す
+# 福めくりタロットのリンクカード（1200×630）とInstagram表紙（1080×1350）を、site/tarot/index.html の札から作り直す
 # 使い方：python3 docs/tools/make_tarot_images.py   （Playwrightが必要）
 from playwright.sync_api import sync_playwright
 import base64, os
@@ -30,15 +30,15 @@ with sync_playwright() as p:
     pg.goto("file://"+os.path.abspath("site/tarot/index.html"))
     faces=pg.evaluate("[17,19,18].map(i=>faceHTML(i))")   # 星・太陽・月
     b_img=f'<img src="data:image/webp;base64,{brand}"'
-    ogp=f'''<div class="cv" style="width:1200px;height:630px;padding:0 90px;gap:150px">
+    ogp=f'''<div class="cv" style="width:1200px;height:630px;padding:0 70px;gap:190px">
       <div style="margin-left:110px">{fan(faces,210,17)}</div>
       <div style="position:relative;z-index:1"><p class="eyebrow" style="font-size:24px">TAROT · 1日1枚</p>
-      <p class="serif" style="font-size:96px;line-height:1.3;letter-spacing:.06em">今日の一枚</p>
+      <p class="serif" style="font-size:62px;line-height:1.4;letter-spacing:.04em;white-space:nowrap">福めくりタロット</p>
       <p style="font-size:30px;line-height:1.7;color:#6E6252;margin-top:8px">招き猫が、あなたの今日のために<br>タロットを1枚めくります。</p>
       <p class="foot" style="font-size:26px;margin-top:28px">{b_img} width="52" height="52">まねき占い堂</p></div></div>'''
     ig=f'''<div class="cv" style="width:1080px;height:1350px;flex-direction:column;padding:120px 80px 96px">
       <p class="eyebrow" style="font-size:30px">TAROT · 1日1枚</p>
-      <p class="serif" style="font-size:132px;line-height:1.3;letter-spacing:.06em;margin-top:8px">今日の一枚</p>
+      <p class="serif" style="font-size:104px;line-height:1.4;letter-spacing:.04em;margin-top:8px;white-space:nowrap">福めくりタロット</p>
       <div style="margin-top:56px">{fan(faces,280,23)}</div>
       <p style="font-size:38px;line-height:1.7;text-align:center;margin-top:84px">招き猫が、あなたの今日のために<br>タロットを1枚めくります。</p>
       <p class="pill" style="font-size:36px;padding:18px 52px;margin-top:36px">無料・1日1回・ワンタップ</p>
