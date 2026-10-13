@@ -5,7 +5,7 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 1本目「仕事とお金の数秘診断」（生年月日の数秘1〜9）、2本目「魂の色診断」（8問の質問で8色のオーラ／恋愛・人との縁）、3本目「福めくりタロット」（タロット1日1枚／今日のすごし方）。
 
 ## ブランド
-- 屋号：まねき占い堂（総合占いアカウント。診断を今後増やす）。数秘診断が1本目、魂の色診断が2本目
+- 屋号：まねき占い堂（総合占いアカウント。診断を今後増やす）。数秘診断が1本目、魂の色診断が2本目、福めくりタロットが3本目
 - 顔：招き猫（三毛猫・紫の星柄の帽子とケープ・小判・金の鈴）。SNSアイコンは docs/assets/icon.png、サイト内は site/images/brand.webp
 - X：https://x.com/maneki_uranai （@maneki_uranai）
 - Instagram：https://www.instagram.com/manekiuranai ／ Threads：https://www.threads.com/@manekiuranai （どちらも @manekiuranai、アンダーバーなし）
@@ -99,7 +99,7 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 
 ## いまの状況（2026-10-03）
 - 公開済み：数秘診断（1本目）、魂の色診断（2本目・2026-10-02公開）。どちらも本番で表示確認済み
-- 3本目「福めくりタロット」は【非公開中】。2026-10-03に一度公開したあと、本人の希望で本番から外した。完成版は `tarot-today` ブランチの `site/` にある（main の `site/` には tarot がなく、トップの一覧も2本のまま）。本人から「公開して」と言われたら `git checkout tarot-today -- site/` で戻して main に push する。それまで公開しない
+- 3本目「福めくりタロット」は2026-10-14に本人の希望で公開（`tarot-today` ブランチの完成版を main の site/ に戻し、トップの一覧を3本にした）
 - 作成時にスマホ幅360pxで動作確認済み。告知文は docs/sns/tarot_posts.md、Instagram表紙は docs/assets/instagram/tarot_01.png
 - 魂の色診断の告知文（X・Threads・Instagram）とInstagramカード10枚は作成済み。投稿は本人が行う
 - 未完了：note有料記事がまだなく、3診断とも `NOTE_URL` が空（結果画面のボタンは「公開準備中」）。記事ができたらURLを入れる
