@@ -25,7 +25,7 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 - `docs/prompts/` … キャラ画像の生成プロンプト（公開されない）
 - `docs/assets/` … SNS用の画像（icon.png＝アイコン、header_x.png＝Xヘッダー、post_9types.png＝投稿用の9タイプ一覧）。`originals/` に9匹と招き猫の元画像（1254px）。公開されない
   - `docs/assets/instagram/` … Instagram用カード（1080×1350）。chara_card_1〜9＝数秘の9キャラ、aura_01〜10＝魂の色診断のスワイプ10枚
-- `docs/sns/` … 診断ごとのSNS投稿文とリプ返信の型（aura_posts.md）
+- `docs/sns/` … 診断ごとのSNS投稿文とリプ返信の型（aura_posts.md, tarot_posts.md）、運用手順_PC版.md、分析/（週ごとの分析表）、予約/（週ごとの予約投稿一覧）
 - `docs/tools/make_instagram_aura.py` … 魂の色のInstagramカードを site/aura/index.html の文章から作り直すスクリプト（`python3 docs/tools/make_instagram_aura.py 出力先フォルダ`。Playwrightが必要）
 - `docs/tools/make_tarot_images.py` … 福めくりタロットのリンクカードとInstagram表紙（tarot_01.png）を作り直すスクリプト（`python3 docs/tools/make_tarot_images.py`）
 - 公開URL：https://maneki-uranai.netlify.app/ ／ 数秘診断 https://maneki-uranai.netlify.app/suuhi/ ／ 魂の色診断 https://maneki-uranai.netlify.app/aura/ ／ 福めくりタロット https://maneki-uranai.netlify.app/tarot/
@@ -90,6 +90,8 @@ X・Threads で発信 → この診断サイト → note 有料記事へ誘導�
 - 公開前にスマホ幅360pxで横スクロールが出ないか、画像が全部出るかを確認する
 
 ## SNS運用のきまり
+- 2026-10-15から、PCのClaude（ブラウザ操作）で「調査→分析→サイト改善→投稿づくり→予約」を回す。手順は docs/sns/運用手順_PC版.md
+- Threads は本人の依頼で1週間分をブラウザで予約投稿。Instagram も予約可能（アプリ、またはPCの Meta Business Suite）。投稿・予約の前に必ず本人の確認を取る
 - Xは無料版（プレミアムなし）。投稿文は全角140字以内で、短めに書く。プレミアムは、毎日投稿が続いて反応が安定してから検討
 - Threadsはハッシュタグを本文に入れず、トピック欄に1つ付ける
 - Instagramはキャプション内のURLが押せないので「プロフィールのリンクから」と案内する。画像は 1080×1350
